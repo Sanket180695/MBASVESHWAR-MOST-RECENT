@@ -1,0 +1,64 @@
+<div>
+
+    <form nz-form>
+        
+            <div nz-row class="my-box">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzNoColon>{{'gfinancialinfo.ttl11'| translate}}
+                            </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <textarea nz-input name="TERM_ACC_NO2" type="text"
+                                        [(ngModel)]="data45.ACC_NO"
+                                        [nzAutosize]="{ minRows: 1, maxRows: 5 }" required>
+                                    </textarea>
+                                </nz-form-control>
+                    </nz-form-item>
+                </div>
+                
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzNoColon>{{'consumer-durables-loan.placeholder3'| translate}}
+                        </nz-form-label>
+                        <nz-form-control nzHasFeedback>
+                            <nz-input-number name="TERM_ACC_AMOUNT2" style="width: 100%;"
+                                [(ngModel)]="data45.ACC_AMOUNT" [nzMin]="0"
+                                [nzMax]="99999999999999999999999999">
+                            </nz-input-number>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzSpan="12">
+        
+                    <nz-form-label nzRequired nzNoColon> {{'gcreditinfo.th9'| translate}}
+                    </nz-form-label>
+
+                    <nz-form-control nzHasFeedback >
+                        <input nz-input [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+                        placeholder="dd/mm/yyyy" type="text" [(ngModel)]="data45.MATURITY_DUE" name="MATURITY_DUE2" />
+                    </nz-form-control>
+
+                </div>
+            </div>
+            
+    </form>
+
+    <!--  && extraApplicantInformation.IS_APPROVED == false" -->
+    <div *ngIf="CURRENT_STAGE_ID == 8" class="footer" >
+
+        
+        <button type="button" nz-button (click)="close()" class="ant-btn" style="margin-right: 8px;">
+            <span>{{'common.cancel' | translate}}</span>
+        </button>
+
+        <button *ngIf="!data45.ID" type="button" class="ant-btn ant-btn-primary" (click)="save()" nz-button>
+            <span> {{ 'common_text.footer_btn1' | translate}}</span>
+        </button>
+
+        <!--   [nzLoading]="isSpinning" -->
+        <button *ngIf="data45.ID" (click)="save()" type="button" class="ant-btn ant-btn-primary" nz-button>
+            <span> {{ 'common_text.footer_btn3' | translate}} </span>
+        </button>
+
+    </div>
+</div>

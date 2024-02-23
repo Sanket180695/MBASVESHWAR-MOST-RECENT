@@ -1,0 +1,53 @@
+<div>
+    <div nz-row>
+
+        <div nz-col nzSpan="24">
+            <div nz-row style="border-bottom: 1px solid rgb(37, 37, 37);">
+                <div nz-col nzSpan="12">
+
+                    <nz-form-item>
+                        <nz-form-label>Saction Amount</nz-form-label>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label>Remark</nz-form-label>
+                    </nz-form-item>
+
+                </div>
+
+                <div nz-col nzSpan="12">
+
+                    <nz-form-item>
+                        <nz-input-number name="SANCTION_AMOUNT" style="width: 100%;" [(ngModel)]="data.SANCTION_AMOUNT1"></nz-input-number>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <textarea nz-input rows="2" name="remark" [(ngModel)]="data.REMARK_LEGAL_OPINION" required></textarea>
+                    </nz-form-item>
+                    
+                </div>
+            </div>
+         
+            
+            <div class="footer" style="bottom: -45px;">
+
+                <button (click)="save('V')" type="button" style="margin-right: 8px;" class="ant-btn ant-btn-primary" nz-button
+                    [nzLoading]="isButtonSpinning2">
+                    <span>{{'cibilchecking.send_to_legal_opinion_stage'|translate }}</span>
+                </button>
+
+                <button (click)="save('R')" type="button" style="margin-right: 8px;" class="ant-btn ant-btn-primary" nz-button
+                    [nzLoading]="isButtonSpinning">
+                    <span>{{'cibilchecking.send_to_refill'|translate }}</span>
+                </button>
+
+                <button (click)="reject()" type="button" tyle="margin-left: 8px;" class="ant-btn ant-btn-primary" nz-button
+                    [nzLoading]="isButtonSpinning">
+                    <span>{{'cibilchecking.reject'|translate }}</span>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

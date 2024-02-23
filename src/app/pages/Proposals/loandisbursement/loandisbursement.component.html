@@ -1,0 +1,78 @@
+<div nz-row>
+    <div nz-col nzSpan="24">
+        <nz-form-item>
+            <nz-radio-group name="status" [(ngModel)]="STATUS">
+                <label nz-radio nzValue="A"> {{'basicinfo.m22'| translate}}</label>
+                <label nz-radio nzValue="R">{{'basicinfo.m24'| translate}} </label>
+            </nz-radio-group>
+        </nz-form-item>
+
+    </div>
+</div>
+
+
+<!-- Disbursement Date -->
+<div nz-col nzSpan="12">
+
+    <nz-form-label nzRequired nzNoColon> {{'gcreditinfo.th28'| translate}} 
+    </nz-form-label>
+
+    <nz-form-control nzHasFeedback>
+        <!-- <nz-date-picker nzWidth="80px" 
+           name="MATURITY_DUE" [(ngModel)]="data45.MATURITY_DUE"
+           ></nz-date-picker> -->
+        <input nz-input [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+            placeholder="dd/mm/yyyy" type="text" [(ngModel)]="data.MATURITY_DUE" name="MATURITY_DUE" />
+    </nz-form-control>
+</div>
+
+
+<!-- Maturity Date -->
+<div nz-col nzSpan="12">
+
+    <nz-form-label nzRequired nzNoColon>{{'gcreditinfo.th24'| translate}} </nz-form-label>
+
+    <nz-form-control nzHasFeedback>
+        <input nz-input [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+            placeholder="dd/mm/yyyy" type="text" [(ngModel)]="data.MATURITY_DUE_DATE" name="MATURITY_DUE_DATE" />
+    </nz-form-control>
+
+</div>
+
+<div nz-row>
+    <div nz-col nzSpan="24">
+        <nz-form-label nzRequired nzNoColon>{{'passtomainbranch.lebel3'| translate}} </nz-form-label>
+        <nz-form-control>
+            <textarea nz-input rows="2" name="remark" [(ngModel)]="data.LOAN_DISBURSEMENT_REMARK" required></textarea>
+        </nz-form-control>
+    </div>
+</div>
+
+<!-- <div nz-row *ngIf="STATUS=='A'">
+    <div nz-col nzSpan="24">
+        <nz-form-item>
+            <nz-form-label>{{'basicinfo.m20'|translate}}</nz-form-label>
+            <nz-form-control>
+                <input type="file" #file1 accept="application/pdf" (change)="onFileSelectedFile1($event)" />
+            </nz-form-control>
+        </nz-form-item>
+
+    </div>
+</div> -->
+
+<div class="footer">
+    <button type="button" nz-button (click)="close()" class="ant-btn"
+        style="margin-right: 8px;"><span>{{'common.button1'|translate}}
+        </span></button>
+    <button type="button" *ngIf="STATUS == 'A'" class="ant-btn ant-btn-primary" nz-button [nzLoading]="isButtonSpinning"
+        (click)="save()"><span>{{'paymentapproval.saveclosebutton'|translate}}</span></button>
+
+    <button type="button" *ngIf="STATUS == 'R'" class="ant-btn ant-btn-primary" nz-button [nzLoading]="isButtonSpinning"
+        (click)="reject()"><span>{{'paymentapproval.saveclosebutton'|translate}}</span></button>
+    <!-- 
+
+
+    <button *ngIf="STATUS=='R'" type="button" class="ant-btn ant-btn-primary" nz-button [nzLoading]="isButtonSpinning"
+        (click)="save()"><span>{{'paymentapproval.paymentreject'|translate}}</span></button> -->
+
+</div>

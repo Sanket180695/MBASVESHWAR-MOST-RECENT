@@ -1,0 +1,63 @@
+<div>
+    <form nz-form>
+
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzNoColon>{{'gcreditinfo.th18'| translate}}</nz-form-label>
+                <nz-form-control nzErrorTip="{{'common.nzErrorTip'| translate}}">
+                    <input nz-input name="BANK_NAME" type="text" [(ngModel)]="data4.BANK_NAME" required />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label nzNoColon>{{'gcreditinfo.th7'| translate}}</nz-form-label>
+                <nz-form-control>
+                    <nz-input-number style="width: 100%;" name="LOAN_OUTSTANDING" [(ngModel)]="data4.LOAN_OUTSTANDING"
+                        [nzMin]="0" [nzMax]="999999999" [nzStep]="1">
+                    </nz-input-number>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label nzNoColon>{{'agri_info.REMARK_label' | translate}}
+                </nz-form-label>
+                <nz-form-control>
+                    <textarea nz-input name="REMARK" type="text" [(ngModel)]="data4.REMARK"
+                        [nzAutosize]="{ minRows: 2, maxRows: 5 }"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label nzNoColon>{{'gcreditinfo.th5'| translate}}</nz-form-label>
+                <nz-form-control>
+                    <nz-input-number style="width: 100%;" name="SANCTION_AMOUNT" [(ngModel)]="data4.SANCTION_AMOUNT">
+                    </nz-input-number>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+    </form>
+    <!--  && extraApplicantInformation.IS_APPROVED == false"  -->
+    <div *ngIf="CURRENT_STAGE_ID == 8" class="footer" >
+
+        <button type="button" nz-button  class="ant-btn" style="margin-right: 8px;" (click)="close()">
+            <span>{{'common.cancel'|translate}}</span>
+        </button>
+
+        <button *ngIf="!data4.ID" type="button" class="ant-btn ant-btn-primary" (click)="save()" nz-button >
+            <span>{{'common_text.footer_btn1'|translate}}</span>
+        </button>
+
+        <!-- [nzLoading]="isSpinning"-->
+        <button *ngIf="data4.ID" type="button" class="ant-btn ant-btn-primary" nz-button (click)="save()" >
+            <span>{{'common_text.footer_btn3'|translate}}</span>
+        </button>
+
+    </div>
+</div>

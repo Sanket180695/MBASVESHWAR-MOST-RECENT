@@ -1,0 +1,248 @@
+
+<div nz-row nzType="flex">
+    <div nz-col nzXs="24" nzSm="24" nzMd="8" nzLg="8" nzXl="8">
+        <div class="formname"> {{formTitle}}</div>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="16" nzLg="16" nzXl="16" style="display: flex;justify-content: flex-end">
+        <form nz-form [nzLayout]="'inline'">
+
+            <nz-form-item>
+                <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                    <input type="text" name="search" nz-input
+                        placeholder="{{'bankloanschemes.search_title' | translate}} " [(ngModel)]="searchText" />
+                </nz-input-group>
+                <ng-template #suffixIconButton>
+                    <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+                    <!-- (click)="search(true)" -->
+                </ng-template>
+            </nz-form-item>
+            <nz-form-item>
+
+                <button nz-button nzType="primary" (click)="addProperties()" nzJustify="end">
+                    <i nz-icon nzType="plus"></i>{{ 'common_text.add_button_title' | translate}}
+                </button>
+
+            </nz-form-item>
+        </form>
+    </div>
+</div>
+
+<div nz-row>
+    <div nz-col nzSpan="24">
+        <nz-table class="my-scroll no-wrap1" nzBordered #table nzShowSizeChanger [nzFrontPagination]="false" [nzData]="propertiesData"
+            style="max-height: 500px;">
+            <!-- 
+       [nzLoading]="loadingRecords" [nzTotal]="totalRecords" [(nzPageIndex)]="pageIndex"
+      [(nzPageSize)]="pageSize" (nzPageIndexChange)="search()" (nzPageSizeChange)="search(true)"
+       -->
+
+
+            <thead nzSingleSort>
+                <!-- (nzSortChange)="sort($event)" -->
+                <tr>
+                    <th>{{ 'common_text.table_action_title' | translate}} </th>
+                    <th *ngFor="let column of columns" nzShowSort nzSortKey={{column[0]}}>{{column[1]}}</th>
+                    <!--  -->
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of table.data">
+                    <td>
+                        <a (click)="delete(data)">
+                            <i nz-icon nzType="delete" nzTheme="outline" [nzTwotoneColor]="'#ff4d4f'"></i>
+                        </a>
+
+                        <a (click)="edit(data)">
+                            <i nz-icon nzType="edit" nzTheme="twotone"></i>
+                        </a>
+                        
+                    </td>
+                    
+                    <td *ngFor="let column of columns">
+                        {{data[column[0]]}}
+                    </td>
+                    <!--  -->
+
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+</div>
+
+<div style="margin-top: 20px;" nz-row>
+
+    <div nz-col nzSpan="1"></div>
+
+    <div nz-col nzSpan="11"></div>
+</div>
+<div nz-row>
+    <div nz-col nzSpan="12">
+
+        <div nz-row>
+            <div nz-col nzSpan="24">
+                <nz-form-label style="margin-left: 30px;" nzNoColon>{{'propertiesinfo.label1'|translate}}
+
+                </nz-form-label>
+                <nz-form-control style="margin-left: 30px;">
+                    <nz-switch name="IS_VALUATION_DONE"
+                        nzCheckedChildren="{{'gfinancialinfo.switch.child1'|translate }}"
+                        nzUnCheckedChildren="{{'gfinancialinfo.switch.child2'|translate }}"
+                        [(ngModel)]="data1.IS_VALUATION_DONE">
+                    </nz-switch>
+
+                </nz-form-control>
+            </div>
+            <div nz-col nzSpan="1"></div>
+
+
+            <div nz-col nzSpan="1"></div>
+            <div nz-col nzSpan="10" *ngIf="data1.IS_VALUATION_DONE">
+                <nz-form-item>
+                    <nz-form-label style="margin-left: 30px;" nzRequired nzNoColon> {{'propertiesinfo.label2'|translate
+                        }}
+                    </nz-form-label>
+
+                    <nz-form-control style="margin-left: 30px;" nzHasFeedback>
+
+                        <input nz-input
+                            [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+                            placeholder="dd/mm/yyyy" type="text" [(ngModel)]="data1.DATE_OF_VERIFICATION"
+                            name="DATE_OF_VERIFICATION" />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+
+            <div nz-col nzSpan="1"></div>
+            <div nz-col nzSpan="10" *ngIf="data1.IS_VALUATION_DONE">
+
+                <nz-form-item>
+                    <nz-form-label style="margin-left: 30px;" nzRequired nzNoColon>{{'propertiesinfo.label3'|translate
+                        }}
+                    </nz-form-label>
+                    <nz-form-control style="margin-left: 30px;" nzHasFeedback
+                        nzErrorTip="{{ 'common_text.nzErrorTip' | translate}}">
+                        <input nz-input name="name" type="text" [(ngModel)]="data1.NAME_OF_VERIFYING_OFFICER"
+                            required />
+                    </nz-form-control>
+                </nz-form-item>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div nz-col nzSpan="12">
+    </div>
+</div>
+<!-- <div nz-row>
+    <div nz-col nzSpan="24">
+        <nz-form-item>
+            <nz-form-label style="margin-left: 30px;margin-top: 20px;" nzRequired nzNoColon>
+                {{'propertiesinfo.label4'|translate }}
+            </nz-form-label>
+            <nz-form-control style="margin-left: 30px;">
+                <nz-checkbox-wrapper style="width: 100%;">
+                    <div nz-row>
+                        <label name="COMBINED_UTARA" nz-checkbox
+                            [(ngModel)]="data1.COMBINED_UTARA">{{'propertiesinfo.label5'|translate }}</label>
+
+                        <label name="CULTIVATION_DETAILS" nz-checkbox
+                            [(ngModel)]="data1.CULTIVATION_DETAILS">{{'propertiesinfo.label6'|translate }}
+                        </label>
+
+                        <label name="VALUATION_1" nz-checkbox
+                            [(ngModel)]="data1.VALUATION_1">{{'propertiesinfo.label7'|translate }}</label>
+
+                        <label name="NO_DUES" nz-checkbox
+                            [(ngModel)]="data1.NO_DUES">{{'propertiesinfo.label8'|translate }}</label>
+
+                        <label name="BOUNDARIES_1" nz-checkbox
+                            [(ngModel)]="data1.BOUNDARIES_1">{{'propertiesinfo.label9'|translate }}</label>
+
+                        <label name="SKETCH_1" nz-checkbox
+                            [(ngModel)]="data1.SKETCH_1">{{'propertiesinfo.label10'|translate }}</label>
+
+                        <label name="ENCUMBRANCE_CERTIFICATE_1" nz-checkbox
+                            [(ngModel)]="data1.ENCUMBRANCE_CERTIFICATE_1">{{'propertiesinfo.label11'|translate
+                            }}</label>
+
+                        <label name="PHOTO_1" nz-checkbox
+                            [(ngModel)]="data1.PHOTO_1">{{'propertiesinfo.label14'|translate }}</label>
+
+
+                    </div>
+                </nz-checkbox-wrapper>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div nz-col nzSpan="24">
+        <nz-form-item>
+            <nz-form-label style="margin-left: 30px;" nzRequired nzNoColon>
+
+                {{'propertiesinfo.label12'|translate }}
+            </nz-form-label>
+            <nz-form-control style="margin-left: 30px;">
+                <nz-checkbox-wrapper style="width: 100%;">
+                    <div nz-row>
+                        <label name="HOME_UTARA" nz-checkbox
+                            [(ngModel)]="data1.HOME_UTARA">{{'propertiesinfo.label13'|translate }}</label>
+
+                        <label name="VALUATION_2" nz-checkbox
+                            [(ngModel)]="data1.VALUATION_2">{{'propertiesinfo.label7'|translate }}</label>
+
+                        <label name="PHOTO" nz-checkbox [(ngModel)]="data1.PHOTO">{{'propertiesinfo.label14'|translate
+                            }}</label>
+
+                        <label name="BOUNDARIES_2" nz-checkbox
+                            [(ngModel)]="data1.BOUNDARIES_2">{{'propertiesinfo.label9'|translate }}</label>
+
+                        <label name="SKETCH_2" nz-checkbox
+                            [(ngModel)]="data1.SKETCH_2">{{'propertiesinfo.label10'|translate }}</label>
+
+                        <label name="ENCUMBRANCE_CERTIFICATE_2" nz-checkbox
+                            [(ngModel)]="data1.ENCUMBRANCE_CERTIFICATE_2">{{'propertiesinfo.label11'|translate
+                            }}</label>
+
+                    </div>
+                </nz-checkbox-wrapper>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div nz-col nzSpan="24">
+        <nz-form-label nzNoColon style="margin-left: 30px;">
+            {{'propertiesinfo.label15'|translate }}
+
+        </nz-form-label>
+        <nz-form-control style="margin-left: 30px;">
+            <nz-switch name="IS_RC_ENCLOSED" nzCheckedChildren="{{'gfinancialinfo.switch.child1'|translate }}"
+                nzUnCheckedChildren="{{'gfinancialinfo.switch.child2'|translate }}" [(ngModel)]="data1.IS_RC_ENCLOSED">
+            </nz-switch>
+
+        </nz-form-control>
+    </div>
+</div> -->
+
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+    [nzClosable]="true" [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="1100" (nzKeyboard)="true"
+    [nzVisible]="drawerVisible_ToAddProperties" [nzTitle]="drawerTitle_ToAddProperties" (nzOnClose)="drawerCloseProperties()">
+    <!--  -->
+
+    <app-g-properties-to-add [drawerCloseProperties]="closeCallback" [data]="drawerData_ToAddProperties" [G_ID]="G_ID" >
+    </app-g-properties-to-add>
+</nz-drawer>
+
+<div nz-row>
+    <div *ngIf="roleId =='5' && CURRENT_STAGE_ID == 8" nz-col nzSpan="24">
+
+        <button type="button" style="float: right;" (click)="save()" class="ant-btn ant-btn-primary" nz-button>
+            <span>{{'common.Save'|translate}}</span>
+        </button>
+
+    </div>
+</div>
+

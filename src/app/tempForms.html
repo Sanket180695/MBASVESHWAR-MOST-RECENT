@@ -1,0 +1,2839 @@
+<!-- Loan Application -->
+<div *ngIf="security" style="font-size: 13px;page-break-after: avoid !Important;">
+
+
+    <div nz-row>
+        <div nz-col nzSpan="4">
+
+        </div>
+
+        <div nz-col nzSpan="8">
+            Branch Name : <b class="boldReflections">{{data.BRANCH_NAME_KN}}</b>
+        </div>
+
+        <div class="boldReflections" nz-col nzSpan="12">
+            <b>{{getLoanName(loanInfo.LOAN_TYPE_ID)}}</b>
+        </div>
+    </div>
+
+    <div nz-row style="margin-top: 10px;">
+
+        <div nz-col nzSpan="4" style="text-align:left">
+            <img src="../../../assets/BasveshwrLogo 100 X 100.png" alt="logo" />
+        </div>
+
+        <div nz-col nzSpan="15">
+            <div nz-row>
+                <div nz-col nzSpan="3" style="margin-top: 20px;">
+                </div>
+
+                <div nz-col nzSpan="4" style="margin-top: 5px;">
+                    ಸದಸ್ಯತ್ವ ಕ್ರ
+                </div>
+                <div nz-col nzSpan="4" class="boldReflections"
+                    style="border: 1px solid rgb(16, 16, 16);border-radius: 5px; font-weight: bold;text-transform: uppercase; margin-top: 10px; height: 30px; width: 20px ;">
+                    {{personalInfo.MEMBERSHIP_NUMBER}}
+                </div>
+                <div nz-col nzSpan="1">
+
+                </div>
+
+                <div nz-col nzSpan="5" style="margin-top: 5px;">
+                    ಸಾಲ ಖಾತೆ ನಂ
+                </div>
+                <div nz-col nzSpan="4"
+                    style="border: 1px solid rgb(16, 16, 16);border-radius: 5px; font-weight: bold;text-transform: uppercase; margin-top: 10px; height: 30px; width: 20px ;">
+
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="1" style="margin-top: 20px;">
+                </div>
+
+                <div nz-col nzSpan="12" style="margin-top: 5px;">
+                    ಮಾನ್ಯ ಚೇರಮನರು,
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="1" style="margin-top: 20px;">
+                </div>
+
+                <div nz-col nzSpan="23" style="margin-top: 5px;">
+                    ಶ್ರೀ ಮಹಾತ್ಮಾ ಬಸವೇಶ್ವರ ಕ್ರೇಡಿಟ್ ಸೌಹಾರ್ದ ಸಹಕಾರಿ ನಿ;ನಿಪ್ಪಾಣಿ
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8" style="margin-top: 20px;">
+                </div>
+
+                <div nz-col nzSpan="14" style="margin-top: 5px;">
+                    ತಾ. ನಿಪ್ಪಾಣಿಜಿ. ಬೆಳಗಾವ
+                </div>
+
+            </div>
+        </div>
+        <div nz-col nzSpan="2" style="text-align:right">
+            <img src="/assets/photo_placeholder.png" alt="photo_placeholder.png"
+                style="border:1px solid gray;border-radius:10px;" />
+        </div>
+
+
+        <div nz-col nzSpan="8" style="margin-top: 5px;"></div>
+
+        <div nz-col nzSpan="6" style="margin-top: 5px; font-size: 18px; border: 2px solid black; height: 40px; width: 30px ; 
+                                     text-align: center; justify-content: center;box-shadow: 3px 5px;">
+            <b>ಸಾಲ ಬೇಡಿಕೆ ಅರ್ಜಿ</b>
+        </div>
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ದಾಬಲ ದಿ.
+            <div nz-row>
+                <div nz-col nzSpan="7" style="margin-top: 20px;">
+                </div>
+
+                <div nz-col nzSpan="6" style="margin-top: 5px;">
+                    ಸಹಿ
+                </div>
+                <div nz-col nzSpan="6" style="margin-top: 20px;">
+                </div>
+            </div>
+        </div>
+        <div nz-col nzSpan="10" style="margin-top: 5px;"></div>
+    </div>
+    <div nz-row style="margin-top:20px"></div>
+
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 110px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    1) ಜಾಮೀನ ಸಾಲ
+                </div>
+
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+                <div nz-col nzSpan="3">
+                    <span></span>
+                </div>
+
+
+                <div nz-col nzSpan="8">
+                    4) ಆಸ್ತಿ ಗಿರವಿ ಸಾಲ
+                </div>
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+
+                <div nz-col nzSpan="3">
+                    <span class="boldReflections"
+                        *ngIf="loanInfo.LOAN_TYPE_ID == 18">{{loanInfo.LOAN_AMOUNT}}</span>
+                </div>
+            </div>
+
+
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    2) ಸಂಬಳ ಹಮ್ಮಿ ಪತ್ರ ಸಾಲ
+                </div>
+
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+                <div nz-col nzSpan="3">
+                    <span class="boldReflections" *ngIf="loanInfo.LOAN_TYPE_ID == 1">{{loanInfo.LOAN_AMOUNT}}</span>
+                </div>
+
+
+                <div nz-col nzSpan="8">
+                    5) ಕ್ಯಾಶ್ ಕ್ರೇಡಿಟ್ / ಗೊಡಾವುನ ಸಾಲ
+                </div>
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+
+                <div nz-col nzSpan="3">
+                    <span class="boldReflections" *ngIf="loanInfo.LOAN_TYPE_ID == 4">{{loanInfo.LOAN_AMOUNT}}</span>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    3) ವಾಹನ ಹೈಪೊಥಿಕೇಶನ ಸಾಲ
+                </div>
+
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+                <div nz-col nzSpan="3">
+                    <span class="boldReflections"
+                        *ngIf="loanInfo.LOAN_TYPE_ID == 19">{{loanInfo.LOAN_AMOUNT}}</span>
+                </div>
+
+
+                <div nz-col nzSpan="8">
+                    6) ಪಿಗ್ಗಿ ಜಾಮೀನಕಿ ಸಾಲ
+                </div>
+                <div nz-col nzSpan="1">
+                    ರೂ.
+                </div>
+
+                <div nz-col nzSpan="3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 130px;padding:10px;">
+        <div nz-col nzSpan="24">
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    1) ಅರ್ಜಿದಾರರ ಸಂಪೂರ್ಣ ಹೆಸರು ಶ್ರೀ..
+                </div>
+                <div class="boldReflections" nz-col nzSpan="10">
+                    {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+                    {{personalInfo.APPLICANT_LAST_NAME}}
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="3">
+                    ವಯಸ್ಸು
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{personalInfo.AGE}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಉದ್ಯೋಗ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{personalInfo.OCCUPATION}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಜಾತಿ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{personalInfo.RELIGION}}
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    ಸಂಪೂರ್ಣ ವಿಳಾಸ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="10">
+                    {{addressinfoCurrent.HOUSE_NO}} {{addressinfoCurrent.BUILDING}} {{addressinfoCurrent.LANDMARK}}
+                    {{addressinfoCurrent.VILLAGE}} {{addressinfoCurrent.PINCODE}}
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="3">
+                    ತಾಲೂಕು
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{addressinfoCurrent.TALUKA}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಜಿಲ್ಲೆ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{addressinfoCurrent.DISTRICT}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಫೋನ ನಂ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{personalInfo.MOBILE_NO1}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    2) ಅ) ಸಾಲದ ಉದ್ದೇಶ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="10">
+                    {{loanInfo.PURPOSE_OF_LOAN}}
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="10">
+                    ಆ) ಸಾಲ ಬೇಡಿಕೆ ಮೊತ್ತ ರೂ.
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{loanInfo.LOAN_AMOUNT}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಅಕ್ಷರದಲ್ಲಿ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="6">
+                    {{loanInfo.LOAN_AMOUNT_IN_WORDS}}
+                </div>
+
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="10">
+                    ಸಾಲ ಮರುಪಾವತಿಗಾಗಿ ಬೇಕಾಗಿರುವ ಕಂತುಗಳು
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    {{termIdToTerm_Jyoti(loanInfo.TERM_ID)}}
+                </div>
+                <div nz-col nzSpan="7">
+                    ತಿಂಗಳ ಕಂತುಗಳ ರಕಮು ರೂ
+                </div>
+                <div class="boldReflections" nz-col nzSpan="4">
+                    {{loanInfo.INSTALLMENT_AMOUNT}}
+                </div>
+
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="10">
+                    ಇ) ಗಿರವಿ ಇಡುವ ಆಸ್ತಿ / ಅದರ ವರ್ಣನಎಲ್ಜ
+                </div>
+                <div nz-col nzSpan="10">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    3) ಸದರಿ ಸಾಲ ಮರುಪಾವತಿ
+                    ಭದ್ರತೆಗಾಗಿ ಕೊಡುತ್ತಿರುವ
+                    ಜಾಮೀನುದಾರರ ಹೆಸರುಗಳುಐಟಿ
+                </div>
+                <div nz-col nzSpan="3">
+                    1) ಶ್ರೀ
+
+                </div>
+                <div class="boldReflections" nz-col nzSpan="5">
+                    <span *ngIf="coborrowerData.length > 0">
+                        {{coborrowerData[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                    </span>
+                </div>
+                <div nz-col nzSpan="5">
+                    ಸದಸ್ಯತ್ವ ಕ್ರ.
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    <span *ngIf="coborrowerData.length > 0">
+                        {{coborrowerData[0].PERSONAL_INFORMATION.MEMBERSHIP_NUMBER}}
+                    </span>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8">
+
+                </div>
+                <div nz-col nzSpan="3">
+                    2) ಶ್ರೀ
+
+                </div>
+                <div class="boldReflections" nz-col nzSpan="5">
+                    <span *ngIf="guarantorMain.length > 0">
+                        {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                    </span>
+                </div>
+                <div nz-col nzSpan="5">
+                    ಸದಸ್ಯತ್ವ ಕ್ರ.
+                </div>
+                <div class="boldReflections" nz-col nzSpan="3">
+                    <span *ngIf="guarantorMain.length > 0">
+                        {{guarantorMain[0].PERSONAL_INFORMATION.MEMBERSHIP_NUMBER}}
+                    </span>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8">
+
+                </div>
+                <div nz-col nzSpan="3">
+                    3) ಶ್ರೀ
+
+                </div>
+                <div nz-col nzSpan="5">
+
+                </div>
+                <div nz-col nzSpan="5">
+                    ಸದಸ್ಯತ್ವ ಕ್ರ.
+                </div>
+                <div nz-col nzSpan="3">
+
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="8">
+
+                </div>
+                <div nz-col nzSpan="3">
+                    4) ಶ್ರೀ
+
+                </div>
+                <div nz-col nzSpan="5">
+
+                </div>
+                <div nz-col nzSpan="5">
+                    ಸದಸ್ಯತ್ವ ಕ್ರ.
+                </div>
+                <div nz-col nzSpan="3">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 200px;padding:10px;">
+        <div nz-col nzSpan="24">
+            <div nz-row>
+                <div nz-col nzSpan="24" style=" margin-top: 10px; text-indent: 50px; text-align: justify;">
+                    ಸದರಿ ಸಾಲವನ್ನು ಮೇಲೆ ನಮೂದಿಸಿದ ಉದ್ದೇಶಕ್ಕಾಗಿಯೇ ಉಪಯೋಗಿಸುತ್ತೇನೆ ಹಾಗೂ ಅದೇ ಪ್ರಕಾರ ಸಂಸ್ಥೆಯಲ್ಲಿ ಈಗ
+                    ಜಾರಿಯಲ್ಲಿರುವ ಹಾಗೂ ಇನ್ನು ಮುಂದೆ ಕಾಲಕಾಲಕ್ಕೆ ಜಾರಿಯಲ್ಲಿ ಬರುವ ಉಪನಿಯಮಗಳಿಗೆ ನಾವು ಬದ್ಧರಿರುತ್ತೇವೆ ಹಾಗೂ
+                    ಸದರಿ
+                    ಸಾಲಕ್ಕೆ
+                    ನಾನು ಮತ್ತು ನನ್ನ ವಾರಸುದಾರರು ಜವಾಬ್ದಾರರಿರುತ್ತೇವೆ. ಆದ್ದರಿಂದ ದಯಮಾಡಿ ನನಗೆ ನನ್ನ ಬೇಡಿಕೆ ಪ್ರಮಾಣದಲ್ಲಿ ಸಾಲ
+                    ಮಂಜೂರಿಸಬೇಕಾಗಿ ವಿನಂತಿ.
+
+
+                </div>
+            </div>
+
+            <div nz-row>
+
+                <div nz-col nzSpan="5">
+                    ಜಾಮೀನುದಾರರ ಸಹಿ 1)
+                </div>
+                <div nz-col nzSpan="8">
+
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="5">
+
+                </div>
+
+                <div nz-col nzSpan="3">
+                    2)
+                </div>
+                <div nz-col nzSpan="8">
+
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="5">
+
+                </div>
+
+                <div nz-col nzSpan="3">
+                    3)
+                </div>
+                <div nz-col nzSpan="8">
+
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="5">
+
+                </div>
+
+                <div nz-col nzSpan="3">
+                    4)
+                </div>
+                <div nz-col nzSpan="8">
+
+                </div>
+                <div nz-col nzSpan="5">
+                    ಸಾಲಗಾರನ ಸಹಿ
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 50px;padding:10px;">
+        <div nz-col nzSpan="24">
+            <div nz-row>
+                <div nz-col nzSpan="5">
+
+                </div>
+                <div nz-col nzSpan="15">
+                    ಸಾಲಕ್ಕೆ ಬೇಕಾಗುವ ಕಾಗದ ಪತ್ರಗಳು ಈ ಕೆಳಗಿನಂತೆ ಇರುತ್ತವೆ
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div nz-col nzSpan="24" style="page-break-after: always;">
+        <div nz-row>
+            <table style="width:100%;;">
+
+                <tr>
+                    <td>ಅ) ಆಸ್ತಿ ಗಿರವಿ ಸಾಲಕ್ಕ</td>
+                    <td>ಬ) ವಾಹನ ಹೈಪೊಥಿಕೆಶನ ಸಾಲಕ್ಕೆ
+                    </td>
+                    <td>ಕ) ಕ್ಯಾಶ ಕ್ರೇಡಿಟ್/ಗೋಡಾವುನ ಸಾಲ</td>
+                </tr>
+                <tr>
+                    <td>A) 7/12 ಹೊಲದ ಉತಾರೆ</td>
+                    <td>1] ಆರ್.ಟಿ.ಒ. ಇವರ ಕಡೆಯಿಂದ ಆರ್.ಸಿ.
+                        ಬುಕ್ ಮೇಲೆ ಬೋಜಾ ಎರಿಸುವುದು.
+                    </td>
+                    <td>1] ವ್ಯವಸಾಯ / ವ್ಯಾಪಾರದ ಲಾಯಸೆನ್ನ</td>
+                </tr>
+                <tr>
+                    <td>1] 8 ಮತ್ತು ಖಾತೆ ಉತಾರ 6 ನಂ. ಹಕ್ಕಿನ ಪತ್ರ</td>
+                    <td>2] ಫಾರ್ಮ್ನಂ.29ಎರಡು</td>
+                    <td>2] ಚಾಲತಿ ಮತ್ತು ಹಿಂದಿನ ವರ್ಷದಲಾಭ
+                        ಹಾನಿ ಪತ್ರಿಕೆ ಮತ್ತು ಅಢಾವೆ ಪತ್ರಿಕೆ</td>
+                </tr>
+                <tr>
+                    <td>2] ವಾಟಣಿ ಪತ್ರ ಖರಿದಿ ಪತ್ರ</td>
+                    <td>ಫಾರ್ಮ್ ನಂ. 30 ಎರಡ</td>
+                    <td>3] ವ್ಯವಸಾಯದಲ್ಲಿನ ಬರತಕ್ಕ
+                        ಮತ್ತುಕೊಡತಕ್ಕ ರಕ್ಕಮ ವಿವರಗಳು</td>
+                </tr>
+                <tr>
+                    <td>3] ಸಮ್ಮತಿ ಪತ್ರ</td>
+                    <td>ಫಾರ್ಮ್ ನಂ. 34 ಎರಡು</td>
+                    <td>4] ಶಿಲ್ಲಕ ಮಾಲ ದಾಸ್ತಾನು
+                        ಪತ್ರಿಕೆ</td>
+                </tr>
+                <tr>
+                    <td>4] ಋಣ ರಾಹಿತ್ಯ ಪ್ರಮಾಣ ಪತ್ರ</td>
+                    <td>ಫಾರ್ಮ್ ನಂ. 35 ಎರಡು</td>
+                    <td>5] ಜಿ.ಎಸ್.ಟಿ. (GST) ಅಸೇಸಮೆಂಟ್ ಆರ್ಡರ</td>
+                </tr>
+                <tr>
+                    <td>5] ಹೊಲದ ಕಿಮ್ಮತ್ತಿನ ಪ್ರಮಾಣ ಪತ್ರ</td>
+                    <td>ಫಾರ್ಮ್ ನಂ. 20 ಎರಡು</td>
+                    <td>6] ಆದಾಯ ತೇರಿಗೆ ಅಸೆಸ್‌ಮೆಂಟ್‌ ಆರ್ಡರ</td>
+                </tr>
+                <tr>
+                    <td>6] ಗ್ರಾಮ ಪಂಚಾಯಿತಿ ಸೆಕ್ರೆಟರಿ ಇವರಿಂದ ಮನೆಯ ಉತಾರೆ</td>
+                    <td>ಫಾರ್ಮ್ ನಂ. 26 ಎರಡು</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>B) ಮನೆಯ ಕಾಗದಪತ್ರಗಳು</td>
+                    <td>3] ಟ್ಯಾಕ್ಸ ಬುಕ್ಕು</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1] ಸಿಟಿ ಸರ್ವೆ ಉತಾರ</td>
+                    <td>4] ವ್ಯಾಲುಯೇಷನ ಸರ್ಟಿಫಿಕೇಟ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2] ಸಿಎಮ್‌ಸಿ ಉತಾರೆ</td>
+                    <td>5] ಇನ್ಸುರನ್ನ ಸರ್ಟಿಫಿಕೇಟ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3] ಗ್ರಾಮ ಪಂಚಾಯತ ಉತಾರೆ</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4] ಋಣ ರಾಹಿತ್ಯ ಪ್ರಮಾಣ ಪತ್ರ </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5] ಮನೆಯ ಕಿಮ್ಮತ್ತಿನ ಪ್ರಮಾಣ ಪತ್ರ</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+
+
+    <!-- <div style="margin-top: 50px;"></div> -->
+
+    <div style="font-size: 12px;">
+
+        <div nz-row>
+            <div nz-col nzSpan="5" style="margin-top: 20px;">
+            </div>
+
+            <div nz-col nzSpan="6" style="margin-top: 5px;;font-size: 20px;">
+                ಸಾಲಗಾರರ ಮಾಹಿತಿ
+            </div>
+            <div nz-col nzSpan="8" style="margin-top: 5px;font-weight:bold;font-size: 15px;">
+                (ಸಾಲಗಾರರು ತುಂಬಿ ಕೊಡಬೇಕು)
+            </div>
+
+        </div>
+
+        <div>
+            <table style="width:100% ; ;">
+                <tr>
+                    <th>ಅ.ನಂ</th>
+                    <th>ವಿವರಣೆ </th>
+                    <th>ಸಾಲ ತೆಗೆದುಕೊಳ್ಳುವವನ ಮಾಹಿತಿ</th>
+
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">1.</th>
+                    <td>ಅ) ಪೂರ್ತಿ ಹೆಸರು </td>
+                    <td>ಅ) {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+                        {{personalInfo.APPLICANT_LAST_NAME}}
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಆ) ಸಂಪೂರ್ಣ ವಿಳಾಸ </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        ಆ) {{addressinfoCurrent.HOUSE_NO}}, {{addressinfoCurrent.BUILDING}},
+                        {{addressinfoCurrent.LANDMARK}},
+                        {{addressinfoCurrent.VILLAGE}}, {{addressinfoCurrent.TALUKA}}, {{addressinfoCurrent.DISTRICT}},
+                        {{addressinfoCurrent.STATE}}, {{addressinfoCurrent.PINCODE}}
+                    </td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="3">2.</th>
+                    <td>ಅ) ವ್ಯಾಾಪಾರ ಉದ್ಯೋೋಗವಿರುವ ಅಂಗಡಿಯ ಹೆಸರು</td>
+                    <td>ಅ)</td>
+                </tr>
+                <tr>
+                    <td>ಆ) ಅಂಗಡಿಯ ವಿಳಾಸ </td>
+                    <td>ಆ)
+                        <span>
+                            {{addressinfoSalary.HOUSE_NO}}, {{addressinfoSalary.BUILDING}},
+                            {{addressinfoSalary.LANDMARK}},
+                            {{addressinfoSalary.VILLAGE}}, {{addressinfoSalary.TALUKA}},
+                            {{addressinfoSalary.DISTRICT}},
+                            {{addressinfoSalary.STATE}}, {{addressinfoSalary.PINCODE}}
+                        </span>
+
+                        <span>
+                            {{addressinfoBBussiness.HOUSE_NO}} {{addressinfoBBussiness.BUILDING}}
+                            {{addressinfoBBussiness.LANDMARK}}
+                            {{addressinfoBBussiness.VILLAGE}} {{addressinfoBBussiness.TALUKA}}
+                            {{addressinfoBBussiness.DISTRICT}}
+                            {{addressinfoBBussiness.STATE}} {{addressinfoBBussiness.PINCODE}}
+                        </span>
+
+                        <span>
+                            {{addressinfoAgri.HOUSE_NO}} {{addressinfoAgri.BUILDING}} {{addressinfoAgri.LANDMARK}}
+                            {{addressinfoAgri.VILLAGE}} {{addressinfoAgri.TALUKA}} {{addressinfoAgri.DISTRICT}}
+                            {{addressinfoAgri.STATE}} {{addressinfoAgri.PINCODE}}
+                        </span>
+
+                        <span>
+                            {{addressinfoExpenditure.HOUSE_NO}} {{addressinfoExpenditure.BUILDING}}
+                            {{addressinfoExpenditure.LANDMARK}}
+                            {{addressinfoExpenditure.VILLAGE}} {{addressinfoExpenditure.TALUKA}}
+                            {{addressinfoExpenditure.DISTRICT}}
+                            {{addressinfoExpenditure.STATE}} {{addressinfoExpenditure.PINCODE}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;"> ಇ) ಸ್ವಂತದ್ದು / ಪಾರ್ಟನರ / ಹಿಸ್ಸಾಾ </td>
+                    <td style="border-bottom:2px solid#000000;">ಇ) {{dataBList1.BUSINESS_TYPE}},
+                        {{dataBList1.HISSA}}</td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="4">3.</th>
+                    <td>ನೌಕಾರಿ ಮಾಡುತ್ತಿಿದ್ದರೆ </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ಅ) ಎಲ್ಲಿ </td>
+                    <td>ಅ) {{dataSalary.ORGANISATION_NAME}}</td>
+                </tr>
+                <tr>
+                    <td> ಆ) ಕಾಯಂ ಅಥವಾ ಹಂಗಾಮಿ </td>
+                    <td>ಆ)
+                        {{dataSalary.JOB_TYPE}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇ) ನೌಕರಿ ಮಾಡುತ್ತಿಿದ್ದರೆ ಮಾಲಿಕರ ಸರ್ಟಿಫೀಕೆಟ</td>
+                    <td style="border-bottom:2px solid#000000;">ಇ)
+                        {{dataSalary.POST_OF_EMPLOYMENT}}
+                    </td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="4">4.</th>
+                    <td>ಪ್ರತಿ ತಿಂಗಳು ಅಥವಾ ವಾರ್ಷಿಕ ಉತ್ಪನ್ನ </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ಅ) ಸಂಬಳ (ಜೊತೆಗೆ ಸರ್ಟಿಫೀಕೆಟ ಲಗತ್ತಿಿಸಿ)</td>
+                    <td>ಅ)
+                        {{salaryInfo.GROSS_SALARY}} {{dataBList1.INCOME_YEARLY}} {{expenditure.YEARLY_INCOME}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ) ವ್ಯಾಾಪಾರ ಉದ್ಯೋೋಗ ಅಢಾವೆ ಪತ್ರ ಲಗತ್ತಿಿಸಿ </td>
+                    <td>ಆ) </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇ) ಇತರ ಉತ್ಪನ್ನ ಮನೆ ಬಾಡಿಗೆ ಹೊಲದ ಇತರ </td>
+                    <td style="border-bottom:2px solid#000000;">ಇ)</td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">5.</th>
+                    <td>ಇನಕಮ್ ಟ್ಯಾಾಕ್‌ಸ್‌ ತುಂಬುತ್ತಿಿದ್ದರೆ Assessment order ಲಗತ್ತಿಿಸಿ </td>
+                    <td> {{financialData.IS_INCOME_TAX_FILED ? 'ಹೌದು':'ಇಲ್ಲ'}} </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಹಾಗೂ ಕಳೆದ ಮೂರು ವರ್ಷಗಳಲ್ಲಿ ಎಷ್ಟು ತುಂಬಿರುವಿರಿ. </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="4">6.</th>
+                    <td>ಸ್ವಂತ ಆಸ್ತಿಿ ಇದ್ದರೆ ಅದರ ಮಾಹಿತಿ </td>
+                    <td>ಸರ್ವೆ ನಂ. ಕ್ಷೇತ್ರ ಅಂದಾಜು ಕಿಮ್ಮತ್ತು</td>
+                </tr>
+                <tr>
+                    <td>ಅ) ಹೊಲದ (ಉತಾರೆ ಲಗತ್ತಿಿಸಿರಿ)</td>
+                    <td>ಅ)
+                        <div *ngFor="let property of dataPropertyList">
+                            {{property.addressinfo.R_S_NO}} {{property.TOTAL_AREA}} {{property.VALUATION_AMOUNT}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ) ಮನೆಯ (ಉತಾರೆ ಲಗತ್ತಿಿಸಿರಿ) </td>
+                    <td>ಆ) </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇ) ಮೇಲಿನ ಆಸ್ತಿಿಯನ್ನು ಯಾಗಿಗಾದರು ಗಿರವಿ ಇಟ್ಟಿಿರುವಿರಾ.
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">ಇ)</td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">7.</th>
+                    <td>ಈ ಸಂಸ್ಥೆೆಯಲ್ಲಿ ಹೊಂದಿರುವ ಶೇರ‌್ಸ ಮೊತ್ತ ಹಾಗೂ </td>
+                    <td>
+                        {{personalInfo.MEMBERSHIP_NUMBER}}, {{personalInfo.MEMBERSHIP_AMOUNT}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಸದಸ್ಯತ್ವ ನಂ. </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">8.</th>
+                    <td>ಈ ಸಂಸ್ಥೆೆಯಲ್ಲಿ ಹೊಂದಿರುವ ಖಾತೆ ನಂ. ಡಿಪಾಜಿಟ ಖಾತೆ ನಂ./</td>
+                    <td>
+                        {{financialData.SAVING_ACCOUNT_NO}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಅಥವಾ ಬೇರೆ ಕಡೆಗೆ ಹೊಂದಿದರೆ ಅದರ ಮಾಹಿತಿ </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">9.</th>
+                    <td>ಈ ಸಂಸ್ಥೆೆಯಲ್ಲಿ ತೆಗೆದುಕೊಂಡಿರುವ ಹಾಗೂ ಬೇರೆ ಕಡೆಗೆ </td>
+                    <td>
+                        {{calculateAllLoanAmount()}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ತೆಗೆದುಕೊಂಡಿರುವ ಸಾಲದ ವಿವರಣೆ.</td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">10.</th>
+                    <td>ನೀವು ಈ ಸಂಸ್ಥೆೆಯಲ್ಲಿ ಅಥವಾ ಬೇರೆ ಕಡೆಗೆ ಯಾರಿಗಾದರು </td>
+                    <td>
+                        <!-- {{dataGList2[0].BORROWER_NAME}} {{dataGList2[0].SANCTIONED_AMOUNT}} -->
+                        <div *ngFor="let guarantor of dataGList2">
+                            {{guarantor.BORROWER_NAME}}, {{guarantor.SANCTIONED_AMOUNT}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಜಾಮೀನುದಾರರಾಗಿರುವಿರಾ ? ಆಗಿದ್ದರೆ ಎಲ್ಲಿ ಮತ್ತು ಎಷ್ಟು
+                        ಹಣಕ್ಕೆೆ
+                    </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">11.</th>
+                    <td>ಬೇರೆ ಸಾಲವಿತರಿಸುವ ಸಹಕಾರಿ ಸಂಸ್ಥೆೆಗಳಲ್ಲಿ </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಜಾಮೀನುದಾರರಾಗಿರುವಿರಾ ? ಇದ್ದರೆ ಅದರ ಮಾಹಿತಿ. </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="3">12.</th>
+                    <td>ನಿಮ್ಮ ಮೇಲೆ ಇವತ್ತಿಿನವರೆಗೆ ಬಾಕಿ ಕೊಡ ಬೇಕಾಗಿರುವ </td>
+                    <td>
+                        {{calculateAllLoanAmount()}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಜವಾಬ್ದಾಾರಿ ಎಷ್ಟು ? ಸ್ವಂತ ಸಾಲದ ಹಾಗೂ ಜಾಮೀನುದಾರರಾಗಿದ್ದರೆ </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಎರಡು ಕೂಡಿ ಜಾವಾಬ್ದಾಾರಿಯ ಮೊತ್ತವನ್ನು ಬೇರೆ ಬೇರೆ
+                        ಬರೆಯಬೇಕು.
+                    </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+                <tr>
+                    <th style="border-bottom:2px solid#000000;" rowspan="2">13.</th>
+                    <td>ನಿಮ್ಮದು ಸಮಾಯಿಕ ಆಸ್ತಿಿಯ ಮೇಲೆ ಸಾಲ ಇದೆಯೇ ? </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇದ್ದರೆ ಅದನ್ನು ನೀವು ಎಷ್ಟು ಬಗೆಹರಿಸುವಿರಿ. </td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div nz-row>
+            <!-- <div nz-col nzSpan="" style="margin-top: 20px;">
+    </div> -->
+
+            <div nz-col nzSpan="18" style="margin-top: 5px;;">
+                ಮೇಲಿನ ಎಲ್ಲ ಮಾಹಿತಿಯ ನನಗೆ ತಿಳಿದ ಪ್ರಕಾರ ಸತ್ಯವಿರುತ್ತದೆ.
+            </div>
+
+        </div>
+        <div nz-row style="margin-top:20px"></div>
+        <div nz-row>
+            <!-- <div nz-col nzSpan="" style="margin-top: 20px;">
+    </div> -->
+
+            <div nz-col nzSpan="10" style="margin-top: 5px;;">
+                ನಿಪ್ಪಾಾಣಿ
+            </div>
+
+        </div>
+        <div nz-row style="margin-top:20px"></div>
+        <div nz-row>
+            <!-- <div nz-col nzSpan="5" style="margin-top: 20px;">
+    </div> -->
+
+            <div nz-col nzSpan="9" style="margin-top: 5px;;">
+                ದಿನಾಂಕ:
+            </div>
+            <div nz-col nzSpan="15" style="border-bottom:1px solid#000000;margin-top: 5px;;">
+
+            </div>
+
+        </div>
+        <div nz-row>
+            <div nz-col nzSpan="15" style="margin-top: 20px;">
+            </div>
+
+            <div nz-col nzSpan="8" style="margin-top: 5px;;">
+                ಸಾಲಗಾರನ ಸಹಿ
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div style="margin-top: 50px;"></div>
+    <div nz-row style="border-bottom: 2px solid #000000;padding-bottom: 5px; margin-bottom: 5px;"></div>
+
+    <div style="margin-top: 50px;page-break-before:always ; font-size: 12px; ;">
+
+        <div>
+            <table style="width:100%; ;">
+                <tr>
+                    <th>ಜಾಮೀನುದಾರ ನಂ. 1</th>
+                    <th>ಜಾಮೀನುದಾರ ನಂ. 2</th>
+                </tr>
+
+                <tr>
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                        </span>
+                    </td>
+                    <td>ಅ)
+
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                        </span>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಆ)
+
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].PERSONAL_INFORMATION.HOUSE_NO}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.BUILDING}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.LANDMARK}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.VILLAGE}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.TALUKA}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.DISTRICT}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.STATE}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.PINCODE}}
+
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">ಆ)
+
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].PERSONAL_INFORMATION.HOUSE_NO}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.BUILDING}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.LANDMARK}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.VILLAGE}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.TALUKA}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.DISTRICT}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.STATE}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.PINCODE}}
+
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_SALARY">
+                                Salary,
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_BUSINESS">
+                                Business,
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_AGRICULTURE">
+                                Agriculture,
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_HOUSE">
+                                House rent,
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_OTHER">
+                                Other
+                            </span>
+                        </span>
+                    </td>
+                    <td>ಅ)
+
+                        <span *ngIf="guarantorMain.length > 1">
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_SALARY">
+                                Salary,
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_BUSINESS">
+                                Business,
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_AGRICULTURE">
+                                Agriculture,
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_HOUSE">
+                                House rent,
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_OTHER">
+                                Other
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_SALARY">
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.STATE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.DISTRICT}}
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.TALUKA}}
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.VILLAGE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.PINCODE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_BUSINESS">
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.STATE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.DISTRICT}}
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.TALUKA}}
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.VILLAGE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.PINCODE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_AGRICULTURE">
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.STATE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.DISTRICT}}
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.TALUKA}}
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.VILLAGE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.PINCODE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_HOUSE">
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.STATE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.DISTRICT}}
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.TALUKA}}
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.VILLAGE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.PINCODE}}
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_OTHER">
+
+                            </span>
+                        </span>
+                    </td>
+                    <td>ಆ)
+
+                        <span *ngIf="guarantorMain.length >1">
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_SALARY">
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.STATE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.DISTRICT}}
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.TALUKA}}
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.VILLAGE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.PINCODE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_BUSINESS">
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.STATE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.DISTRICT}}
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.TALUKA}}
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.VILLAGE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.PINCODE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_AGRICULTURE">
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.STATE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.DISTRICT}}
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.TALUKA}}
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.VILLAGE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.PINCODE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_HOUSE">
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.STATE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.DISTRICT}}
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.TALUKA}}
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.VILLAGE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.PINCODE}}
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.BUILDING}}/
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_OTHER">
+
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;"> ಇ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.BUSINESS_TYPE}},
+                            {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.HISSA}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">ಇ)
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.BUSINESS_TYPE}},
+                            {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.HISSA}}
+                        </span>
+                    </td>
+                </tr>
+
+
+                <tr>
+
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.ORGANISATION_NAME}}
+                        </span>
+                    </td>
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.ORGANISATION_NAME}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.JOB_TYPE}}
+                        </span>
+                    </td>
+                    <td>ಆ)
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.JOB_TYPE}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;"> ಇ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.POST_OF_EMPLOYMENT}}
+                        </span>
+                    </td>
+
+                    <td style="border-bottom:2px solid#000000;"> ಇ)
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.POST_OF_EMPLOYMENT}}
+                        </span>
+                    </td>
+                </tr>
+
+
+                <tr>
+
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 0">
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_SALARY">
+                                {{guarantorMain[0].INCOME_INFORMATION.SALARY_INFO.GROSS_SALARY}},
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_BUSINESS">
+                                {{guarantorMain[0].INCOME_INFORMATION.BUSINESS_INFO.INCOME_YEARLY}},
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_AGRICULTURE">
+                                {{guarantorMain[0].INCOME_INFORMATION.AGRI_INFO.YEARLY_INCOME}},
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_HOUSE">
+                                {{guarantorMain[0].INCOME_INFORMATION.HOUSE_INFO.YEARLY_INCOME}},
+                            </span>
+                            <span *ngIf="guarantorMain[0].INCOME_INFORMATION.IS_OTHER">
+                                {{guarantorMain[0].INCOME_INFORMATION.OTHER_INFO.PRODUCT_INCOME}}
+                            </span>
+                        </span>
+                    </td>
+                    <td>ಅ)
+                        <span *ngIf="guarantorMain.length > 1">
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_SALARY">
+                                {{guarantorMain[1].INCOME_INFORMATION.SALARY_INFO.GROSS_SALARY}}
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_BUSINESS">
+                                {{guarantorMain[1].INCOME_INFORMATION.BUSINESS_INFO.INCOME_YEARLY}}
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_AGRICULTURE">
+                                {{guarantorMain[1].INCOME_INFORMATION.AGRI_INFO.YEARLY_INCOME}}
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_HOUSE">
+                                {{guarantorMain[1].INCOME_INFORMATION.HOUSE_INFO.YEARLY_INCOME}}
+                            </span>
+                            <span *ngIf="guarantorMain[1].INCOME_INFORMATION.IS_OTHER">
+                                {{guarantorMain[1].INCOME_INFORMATION.OTHER_INFO.PRODUCT_INCOME}}
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ) </td>
+                    <td>ಆ) </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇ)</td>
+                    <td style="border-bottom:2px solid#000000;">ಇ) </td>
+                </tr>
+
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].FINANCIAL_INFORMATION.G_IS_INCOME_TAX_FILED ? "ಹೌದು" : "ಇಲ್ಲ"}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].FINANCIAL_INFORMATION.G_IS_INCOME_TAX_FILED ? "ಹೌದು" : "ಇಲ್ಲ"}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>ಸರ್ವೆ ನಂ. ಕ್ಷೇತ್ರ ಅಂದಾಜು ಕಿಮ್ಮತ್ತು</td>
+                    <td>ಸರ್ವೆ ನಂ. ಕ್ಷೇತ್ರ ಅಂದಾಜು ಕಿಮ್ಮತ್ತು</td>
+                </tr>
+
+
+                <tr>
+
+                    <td>
+
+                        <span *ngIf="guarantorMain.length > 0">
+                            <div *ngFor="let property of guarantorMain[0].PROPERTY_INFORMATION">
+                                <span *ngIf="property.PROPERTY_TYPE != 'V' ">
+                                    ಅ) {{property.G_R_S_NO}}
+                                    {{property.G_TOTAL_AREA}}
+                                    {{property.G_VALUATION_AMOUNT}}
+                                </span>
+
+                            </div>
+                        </span>
+
+                    </td>
+                    <td>ಅ)
+
+                        <span *ngIf="guarantorMain.length > 1">
+                            <div *ngFor="let property of guarantorMain[1].PROPERTY_INFORMATION">
+                                <span *ngIf="property.PROPERTY_TYPE != 'V' ">
+                                    ಅ) {{property.G_R_S_NO}}
+                                    {{property.G_TOTAL_AREA}}
+                                    {{property.G_VALUATION_AMOUNT}}
+                                </span>
+
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ಆ)</td>
+                    <td>ಆ)</td>
+                </tr>
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">ಇ)</td>
+                    <td style="border-bottom:2px solid#000000;">ಇ) </td>
+                </tr>
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].PERSONAL_INFORMATION.MEMBERSHIP_NUMBER}},
+                            {{guarantorMain[0].PERSONAL_INFORMATION.MEMBERSHIP_AMOUNT}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length >1">
+                            {{guarantorMain[1].PERSONAL_INFORMATION.MEMBERSHIP_NUMBER}},
+                            {{guarantorMain[1].PERSONAL_INFORMATION.MEMBERSHIP_AMOUNT}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].FINANCIAL_INFORMATION.G_SAVING_ACCOUNT_NO}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{guarantorMain[1].FINANCIAL_INFORMATION.G_SAVING_ACCOUNT_NO }}
+                        </span>
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{CalculateTotal(guarantorMain[0])}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{CalculateTotal(guarantorMain[1])}}
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            <span *ngFor="let g of guarantorMain[0].CREDIT_INFORMATION.THIS_BANK_GUARANTEE">
+                                {{g.BORROWER_NAME}},
+                                {{g.SANCTIONED_AMOUNT}}
+                            </span>
+                            
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 1">
+                            <span *ngFor="let g of guarantorMain[1].CREDIT_INFORMATION.THIS_BANK_GUARANTEE">
+                                {{g.BORROWER_NAME}},
+                                {{g.SANCTIONED_AMOUNT}}
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;"></td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 0">
+                            {{CalculateTotal2(guarantorMain[0])}}
+                        </span>
+                    </td>
+                    <td style="border-bottom:2px solid#000000;">
+                        <span *ngIf="guarantorMain.length > 1">
+                            {{CalculateTotal2(guarantorMain[1])}}
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td style="border-bottom:2px solid#000000;"></td>
+                    <td style="border-bottom:2px solid#000000;"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div nz-row>
+            <div nz-col nzSpan="3" style="margin-top: 5px;;">
+                ಶ್ರೀ.
+            </div>
+            <div nz-col nzSpan="7" style="margin-top: 5px;;">
+                {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+                {{personalInfo.APPLICANT_LAST_NAME}}
+            </div>
+            <div nz-col nzSpan="6" style="margin-top: 5px;;">
+                ಇವರ ಬೇಡಿಕೆ ರೂ
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+                {{loanInfo.LOAN_AMOUNT}}
+            </div>
+            <div nz-col nzSpan="3" style="margin-top: 5px;;">
+
+            </div>
+
+        </div>
+        <div nz-row style="margin-top:10px"></div>
+        <div nz-row>
+
+
+            <div nz-col nzSpan="18" style="margin-top: 5px;;">
+                ಸಾಲಕ್ಕೆ ಜಾಮೀನುದಾರರೆಂದು ನಾವು ಸಂಯುಕ್ತ ಜವಾಬ್ದಾರಿ ಇದ್ದೇವೆ.
+            </div>
+
+        </div>
+        <div nz-row style="margin-top:10px"></div>
+        <div nz-row>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+                ಜಾಮೀನುದಾರರ ಸಹಿ
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+                ಜಾಮೀನುದಾರರ ಸಹಿ
+            </div>
+
+
+        </div>
+        <div nz-row>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+                ದಿನಾಂಕ :
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+                ದಿನಾಂಕ :
+            </div>
+            <div nz-col nzSpan="5" style="margin-top: 5px;;">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div style="margin-top: 50px;"></div>
+    <div nz-row style="border-bottom: 2px solid #000000;padding-bottom: 5px; margin-bottom: 5px;"></div>
+
+    <div nz-row style="border:2px solid black;border-radius:5px;height: 130px;padding:10px;margin-top: 50px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಶ್ರೀ
+                </div>
+
+                <div nz-col nzSpan="8">
+                    {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+                    {{personalInfo.APPLICANT_LAST_NAME}}
+                </div>
+                <div nz-col nzSpan="3">
+                    ಸಾ||
+                </div>
+                <div nz-col nzSpan="5">
+                    {{addressinfoCurrent.VILLAGE}}
+                </div>
+
+
+
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="18">
+                    ಇವರದು ನನಗೆ ಪರಿಚಯವಿದ್ದು ಅವರಿಗೆ ನನ್ನ ವೈಯಕ್ತಿಕ ಜಾಮೀನನ ಮೇಲೆ ಮತ್ತು ಶಿಫಾರಸ್ಸಿನ ಮೇಲೆ ರೂ
+                </div>
+
+                <div nz-col nzSpan="6">
+                    {{loanInfo.LOAN_AMOUNT}}
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಅಕ್ಷರದಲ್ಲಿ
+                </div>
+
+                <div nz-col nzSpan="15">
+                    {{loanInfo.LOAN_AMOUNT_IN_WORDS}}
+                </div>
+                <div nz-col nzSpan="4">
+                    ಸಾಲ
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    ಮಂಜೂರಿಮಾಡಲು ನನ್ನ ಅಭ್ಯಂತರವಿರುವುದಿಲ್ಲ.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div nz-row style="margin-top:20px">
+
+
+        <div nz-col nzSpan="14" style="margin-top: 5px;text-align: center;">
+            ಆಫೀಸಿನ ಶರಾ
+        </div>
+    </div>
+    <div nz-row style="border:2px solid black;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಸಾಲಗಾರ {{bankopinion}}
+                </div>
+
+            </div>
+            <div nz-row style="margin-top:60px">
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="15">
+
+                </div>
+
+                <div nz-col nzSpan="5">
+                    ಸಾಲ ವಿಭಾಗ ಅಧಿಕಾರಿ
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಜಾಮೀನುದಾರ ನಂ. 1 {{amulyaGuarantorPersonal.G_NAME}}
+                </div>
+
+
+            </div>
+
+
+
+            <div nz-row>
+                <div nz-col nzSpan="10">
+                    ಜಾಮೀನುದಾರ ನಂ.2
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಪಿಗ್ಮಿ ಸಾಲದ ಶರಾ
+                </div>
+
+
+            </div>
+            <div nz-row style="margin-top:60px">
+            </div>
+
+
+            <div nz-row>
+                <div nz-col nzSpan="15">
+
+                </div>
+
+                <div nz-col nzSpan="5">
+                    ಪಿಗ್ಮಿ ಎಜೆಂಟರ ಸಹಿ
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;height: 140px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="5">
+                    ಶೇರಾ
+                </div>
+
+
+            </div>
+            <div nz-row style="margin-top:60px">
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="15">
+
+                </div>
+
+                <div nz-col nzSpan="5">
+                    ಮ್ಯಾನೇಜರ
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div nz-row style="border:2px solid black;height: 240px;padding:10px;">
+        <div nz-col nzSpan="24">
+
+            <div nz-row>
+                <div nz-col nzSpan="8">
+                    ಆಡಳಿತ ಮಂಡಳಿಯ ಠರಾವ ದಿನಾಂಕ
+                </div>
+            </div>
+            <div nz-row style="margin-top:60px">
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    ಮೇಲಿನ ಎಲ್ಲ ಷರತ್ತುಗಳನ್ನೊಳಗೊಂಡು ಅರ್ಜಿದಾರ ಇವರಿಗೆ ಜಾಮೀನು ಸಾಲ/Hypothication
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    ಸಾಲ/Mortagage ಸಾಲ/Cash Credit ಸಾಲ/Godwan ಸಾಲ/Salary Scheme ಸಾಲ
+                    <b>{{data.SANCTION_AMOUNT}}</b> ಅಕ್ಷರದಲ್ಲಿ ರೂ <b>{{data.AMOUNT_IN_WORDS}}</b>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    ಸಾಲದ ಮುದ್ದತ್ತು <b>{{getTermName(data.TERM_OF_LOAN)}}</b> ವರ್ಷ ಮುದ್ದತ್ತಿಗೊಳಪಟ್ಟು
+                    <b>{{getfrequencyName(data.TYPE_OF_INSTALLMENT)}}</b>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    ಕಂತುಗಳ ಮೇಲೆ ಮಂಜೂರಿಸಲಾಯಿತು
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="6">
+                    ದಿನಾಂಕ:
+                </div>
+
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="17">
+
+                </div>
+                <div nz-col nzSpan="7">
+                    ಚೇಅರಮನ
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- C] Salad Kararpatra I -->
+
+<div *ngIf="type2" style="page-break-after:always ; font-size: 12px;">
+
+    <div nz-row>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="20" style="margin-top: 5px;font-size: 20px;">
+            ಶ್ರೀ ಮಹಾತ್ಮಾ ಬಸವೇಶ್ವರ ಕ್ರೆಡಿಟ್ ಸೌಹಾರ್ದ ಸಹಕಾರಿ ನಿ., ನಿಪ್ಪಾಣಿ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="7" style="border: bottom 1px solid #000000;margin-top: 20px;">
+        </div>
+        <div nz-col nzSpan="8" style="margin-top: 20px;">
+            {{data.SANCTION_AMOUNT}}
+        </div>
+
+        <div nz-col nzSpan="9" style="margin-top: 5px;font-size: 13px;">
+            ರೂಪಾಯಿ ಸಾಲದ ಕರಾರ ಪತ್ರ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            ಮೆ|| ಅಧ್ಯಕ್ಷರು / ಮುಖ್ಯ ಕಾರ್ಯನಿರ್ವಾಹಕರು
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="20" style="margin-top: 5px;font-size: 20px;">
+            ಶ್ರೀ ಮಹಾತ್ಮಾ ಬಸವೇಶ್ವರ ಕ್ರೆಡಿಟ್ ಸೌಹಾರ್ದ ಸಹಕಾರಿ ನಿ., ನಿಪ್ಪಾಣಿ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            ಇವರಿಗೆ,
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ನಾನು
+        </div>
+        <div nz-col nzSpan="14" style="margin-top: 5px;">
+            {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+            {{personalInfo.APPLICANT_LAST_NAME}}
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ಉದ್ಯೋಗ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{personalInfo.OCCUPATION}}
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ವಯಸ್ಸು
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{personalInfo.AGE}}
+        </div>
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+            ಸಾ||
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="14" style="margin-top: 5px;">
+            ತಾ: ಚಿಕ್ಕೋಡಿ ಈ ಮೂಲಕ ಬರೆದುಕೊಡುವ ಕರಾರ ಪತ್ರ ಏನೆಂದರೆ,
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ನನ್ನ ಸಾಲ ಅರ್ಜಿಯ ಮೇರೆಗೆ ರೂ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{data.SANCTION_AMOUNT}}
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            (ರೂಪಾಯಿ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{data.AMOUNT_IN_WORDS}}
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="6" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            ಮಂಜೂರು ಮಾಡಿದ್ದು ಸದರಿ ಸಾಲವನ್ನು ನಾನು ಈ ದಿನ ಸೌಹಾರ್ದ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಸಹಕಾರಿಯಿಂದ ರೋಖ ಪಡೆದುಕೊಂಡಿರುತ್ತೇನೆ. ಸದರಿ ಸಾಲದ ಭದ್ರತೆಗಾಗಿ ಈ ಕೆಳಗೆ ಕಾಣಿಸಿದ ಇಬ್ಬರು ಸದಸ್ಯರ ಜಾಮೀನು
+            ನೀಡಿರುತ್ತೇನೆ.
+            ಹಾಗೂ ಈ ಕೆಳಗಿನ ಕರಾರುಗಳಿಗೆ ಅನುಸರಿಸಿ ನಡೆಯಲು ಒಪ್ಪಕೊಂಡಿರುತ್ತೇನೆ.
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            1) ಸದರಿ ಸಾಲವನ್ನು
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            {{getTermName(data.TERM_OF_LOAN)}}
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ಕಂತುಗಳಲ್ಲಿ
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            {{getfrequencyName(data.TYPE_OF_INSTALLMENT)}}
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            ಸಹಿತ ಪೂರ್ಣವಾಗಿ ಮರು ಪಾವತಿ ಮಾಡುತ್ತೇನೆ.
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            2) ಸದರಿ ಸಾಲಕ್ಕೆ ನೂರಕ್ಕೆ
+
+        </div>
+        <div nz-col nzSpan="3" style="margin-top: 5px;">
+            {{data.RATE_OF_INTEREST}}
+        </div>
+        <div nz-col nzSpan="14" style="margin-top: 5px;">
+            % ರಂತೆ ಬಡ್ಡಿ ಕೊಡುತ್ತೇನೆ ಮತ್ತು ಬಡ್ಡಿಯನ್ನು 3 ತಿಂಗಳಿಗೆ ಅಂದರೆ ಗೊತ್ತು
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಪಡಿಸಿದ ತಿಂಗಳ ಕೊನೆಯ ಒಳಗಾಗಿ ತುಂಬುತ್ತೇನೆ. ಮುದ್ದತ್ತಿನ ಒಳಗಾಗಿ ಸಾಲ ತುಂಬಲು ತಷ್ವದ್ದಲ್ಲಿ ಮುದ್ದತ್ತಿನ ದಿನಂದಿದ
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+        <div nz-col nzSpan="7" style="margin-top: 5px;">
+            ಸಾಲ ತುಂಬುವವರೆಗೆ ನೂರಕ್ಕೆ ವರ್ಷಕ್ಕೆ
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            2
+        </div>
+        <div nz-col nzSpan="11" style="margin-top: 5px; ">
+            % ರಂತೆ ದಂಡದ ಬಡ್ಡಿಯನ್ನು ತುಂಬುತ್ತೇನೆ. ಮತ್ತು ಸಾಲ ವಸೂಲಿ
+        </div>
+
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            ಕುರಿತು ತೆಗೆದುಕೊಳ್ಳಬಹುದಾದ ಎಲ್ಲ ಕ್ರಮಗಳಿಗೂ ಬದ್ದನಾಗಿರುತ್ತೇನೆ.
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            3) ಸದರಿ ಸಾಲವನ್ನು
+        </div>
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+            {{loanInfo.PURPOSE_OF_LOAN}}
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಉದ್ದೇಶಕ್ಕಾಗಿ ಉಪಯೋಗಿಸುತ್ತೇನೆ.
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            4) ನಾನು ತಮ್ಮ ಸೌಹಾರ್ದ ಸಹಕಾರಿಯ ಎಲ್ಲ ನಿಯಮಗಳಿಗೂ ಉಪನಿಯಮಗಳಿಗೂ ಹಾಗೂ ಅವುಗಳಲ್ಲಿ ಕಾಲ ಕಾಲಕ್ಕೆ ಆಗಬಹುದಾದ ಬದಲಾವಣಿಗಳಿಗೂ
+            ಅನುಸರಿಸಿ ನಡೆಯುತ್ತೇನೆ. ಅಂತಾ ಬರೆದುಕೊಟ್ಟ ಕಾರರು ಪತ್ರ.
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+            ಸ್ಥಳ:
+        </div>
+        <div nz-col nzSpan="5" style="border-bottom:1px solid #000000;margin-top: 5px;">
+            <span *ngIf="browserLang == 'mr'"> <b> {{data.BRANCH_NAME}}</b> </span>
+            <span *ngIf="browserLang == 'kn'"> <b> {{data.BRANCH_NAME_KN}}</b> </span>
+            <span *ngIf="browserLang == 'en'"> <b> {{data.BRANCH_NAME_EN}}</b> </span>
+        </div>
+        <div nz-col nzSpan="15" style="margin-top: 5px;">
+
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ದಿನಾಂಕ:
+        </div>
+        <div nz-col nzSpan="5" style="border-bottom:1px solid #000000;margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="border-bottom:1px solid #000000; margin-top: 5px;">
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="15" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            (ಸಾಲಗಾರನ ಸಹಿ)
+        </div>
+
+
+
+    </div>
+    <div nz-row style="border-bottom: 2px solid #000000;padding-bottom: 5px; margin-bottom: 5px;"></div>
+    <div nz-row>
+        <div nz-col nzSpan="10" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="14" style="margin-top: 5px;font-size: 20px;">
+            ಜಾಮೀನು ಪತ್ರ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಈ ಮೇಲೆ ಕಾಣಿಸಿದ ಸಾಲಕ್ಕೆ ಜಾಮೀನುದಾರರಾದ ನಾವು ಈ ಮೂಲಕ ಬರೆದುಕೊಡುವುದೇನೆಂದರೆ ನಾವು ಸಂಯುಕ್ತವಾಗಿಯೂ ವೈಯಕ್ತಿಕವಾಗಿ ಬೇರೆ
+            ಬೇರೆಯಾಗಿಯೂ ಸದರಿ ಸಾಲದ ಹಣವನ್ನು ಬಡ್ಡಿ ಸಹಿತ ಮೇಲ್ಕಾಣಿಸಿದ ಕರಾರುಗಳಿಗೆ ಅನುಸರಿಸಿ ಮತ್ತು ಸೌಹಾರ್ದ ಸಹಕಾರಿಯ ಸಾಲ
+            ನಿಯಮಗಳು
+            ಉಪನಿಯಮಗಳಿಗೆ ಅನುಸರಿಸಿ ಸೌಹಾರ್ದ ಸಹಕಾರಿಯಕ್ಕೆ ಮುಟ್ಟಸಲಿಕ್ಕೆ ಸಂಪೂರ್ಣ ಬದ್ದನಾಗಿತ್ತೇವೆ. ಮತ್ತು ಸೌಹಾರ್ದ ಸಹಕಾರಿಯ ಸಾಲ
+            ವಸೂಲಿ ಕುರಿತು ನಮ್ಮ ಮೇಲೆ ಅಥವಾ ವೈಯಕ್ತಿಕವಾಗಿ ಕೈಗೊಳ್ಳುವ ಎಲ್ಲ ಕ್ರಮಗಳಿಗೂ ನಾವು ಬದ್ದರಾಗಿರುತ್ತೇವೆ ಅಂತಾ ಬರೆದುಕೊಟ್ಟ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="10" style="margin-top: 5px;">
+            ಜಾಮೀನು ಪತ್ರ ದಿನಾಂಕ
+        </div>
+        <div nz-col nzSpan="13" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="5" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="8" style="margin-top: 5px;">
+            ಜಾಮೀನುದಾರರ ಹೆಸರು
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ಸಹಿಗಳು
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            1)
+        </div>
+        <div nz-col nzSpan="9" style="margin-top: 5px;">
+            <span *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+            </span>
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            1)
+        </div>
+        <div nz-col nzSpan="7" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            2)
+        </div>
+        <div nz-col nzSpan="9" style="margin-top: 5px;">
+            <span *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+            </span>
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            2)
+        </div>
+        <div nz-col nzSpan="7" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="5" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="8" style="margin-top: 5px;">
+            ಸಾಕ್ಷಿದಾರರ ಹೆಸರು
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ಸಹಿಗಳು
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            1)
+        </div>
+        <div nz-col nzSpan="9" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            1)
+        </div>
+        <div nz-col nzSpan="7" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 10px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            2)
+        </div>
+        <div nz-col nzSpan="9" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            2)
+        </div>
+        <div nz-col nzSpan="7" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+    <div nz-row>
+
+        <div nz-col nzSpan="18" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+            ಮ್ಯಾನೇಜರ್
+        </div>
+
+    </div>
+
+    <div nz-row style="border-bottom: 2px solid #000000;padding-bottom: 5px; margin-bottom: 10px;"></div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="20" style="margin-top: 5px;font-size: 20px;">
+            ಶ್ರೀ ಮಹಾತ್ಮಾ ಬಸವೇಶ್ವರ ಕ್ರೆಡಿಟ್ ಸೌಹಾರ್ದ ಸಹಕಾರಿ ನಿ., ನಿಪ್ಪಾಣಿ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="9" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="6" style="margin-top: 5px; font-size: 18px; border: 2px solid black;border-radius: 5px; height: 40px; width: 30px ; 
+                                     text-align: center; justify-content: center;">
+            <b>ಪ್ರಾಮಿಸರಿ ನೋಟ</b>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            ರೂ
+        </div>
+        <div nz-col nzSpan="15" style="margin-top: 5px;">
+            {{data.SANCTION_AMOUNT}}
+        </div>
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+            ದಿನಾಂಕ
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;">
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ನಾನು/ನಾವು ಶ್ರೀ
+        </div>
+        <div nz-col nzSpan="12" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+            ಸಾ||
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{addressinfoCurrent.VILLAGE}}
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            ಶ್ರೀ
+        </div>
+        <div nz-col nzSpan="12" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="2" style="margin-top: 5px;">
+            ಸಾ||
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            ತಾ.
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{addressinfoCurrent.TALUKA}}
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 5px;">
+            ಜಿ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{addressinfoCurrent.DISTRICT}}
+        </div>
+        <div nz-col nzSpan="13" style="margin-top: 5px;">
+            ಬರೆದುಕೊಡುವ ಪ್ರಾಮಿಸರಿ ನೋಟ (Promissory Note) ಏನೆಂದರೆ
+        </div>
+
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="2" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="8" style="margin-top: 5px;">
+            ನಾನು/ನಾವು ತಮ್ಮ ಸಹಕಾರಿಯಿಂದ ರೋಖ ರೂ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{data.SANCTION_AMOUNT}}
+        </div>
+        <div nz-col nzSpan="6" style="margin-top: 5px;">
+            (ಅಕ್ಷರದಲ್ಲಿ ರೂ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 5px;">
+            {{data.AMOUNT_IN_WORDS}}
+        </div>
+
+
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="6" style="margin-top: 5px;">
+
+        </div>
+        <div nz-col nzSpan="15" style="margin-top: 5px;">
+            ) ಸಾಲ ತೆಗೆದುಕೊಂಡಿರುತ್ತೇನೆ./ವೆ. ತಾವು ಇಲ್ಲವೆ ತಮ್ಮಿಂದ
+        </div>
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಅಧಿಕಾರ ಪಡೆದುಕೊಂಡ ಯಾರಾದರೂ ಬೇಡಿದಲ್ಲಿ ಸಹಕಾರದ ಕಛೇರಿಯಲ್ಲಿ ಸದರೀ ರಕ್ಕಂನ್ನು ಅದರ ಮೇಲೆ ಕರಾರ
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+        <div nz-col nzSpan="3" style="margin-top: 20px;font-weight:bolder">
+            ಪ್ರಕಾರ ದುರಕ್ಕೆ ವರ್ಷಕ್ಕೆ
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+            {{data.RATE_OF_INTEREST}}
+        </div>
+
+        <div nz-col nzSpan="16" style="margin-top: 5px;">
+            % ಬಡ್ಡಯಂತೆ ಆಗುವ ಬಡ್ಡಿ ಹಾಗೂ ಇತರ ಖಚುಗಳನ್ನು ಸಹಿತ
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;">
+            ಕೊಡುತ್ತೇನೆ./ವೆ. ಅಂತಾ ಬರಕೊಟ್ಟ ವಚನ ಪತ್ರ (ಪ್ರಾಮಿಸರಿ ನೋಟ)
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="15" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="9" style="border-bottom: 1px solid black; margin-top: 5px;">
+
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="15" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="9" style="border-bottom: 1px solid black; margin-top: 5px;">
+
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="15" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="9" style="border-bottom: 1px solid black; margin-top: 5px;">
+
+        </div>
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="17" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="7" style="margin-top: 20px;">
+            ಸಾಲಗಾರನ ಸಹಿ
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- G] Receipt -->
+<div *ngIf="type3" style="page-break-after:always ; font-size: 12px;">
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;font-size: 20px;text-align: center;">
+            Shri Mahatma Basaveshwar Credit.
+            Savhard Sah Niy; Nipani.
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;font-size: 20px;text-align: center;">
+
+            Savhard Sah Niy; Nipani.
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="9" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="6" style="margin-top: 5px; font-size: 18px; border: 2px solid black;border-radius: 5px; height: 40px; width: 30px ; 
+                                     text-align: center; justify-content: center;">
+            <b>RECEIPT</b>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+        <div nz-col nzSpan="3" style="margin-top: 20px;">
+            Bond No.
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+            <b>{{data.LOAN_KEY}}</b>
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 20px;">
+
+        </div>
+
+        <div nz-col nzSpan="3" style="margin-top: 20px;">
+            Khata No.
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 20px;">
+            <b>{{data.LOAN_KEY}}</b>
+        </div>
+
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;text-align: justify;">
+
+            I the undersigned Shri {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+            {{personalInfo.APPLICANT_LAST_NAME}} {{data.APPLICANT_MIDDLE_NAME}}
+            {{data.APPLICANT_LAST_NAME}}
+            Occ {{personalInfo.OCCUPATION}} Age {{personalInfo.AGE}} Years, Resident of
+            {{addressinfoCurrent.VILLAGE}}
+            Execute this receipt of loan. <br>
+            1) As per my application dated {{data.SANCTION_DATE}} society has sanctioned loan of
+            Rupees {{data.AMOUNT_IN_WORDS}} only)
+            Rs {{data.SANCTION_AMOUNT}} /- today I received loan of Rs {{data.AMOUNT_IN_WORDS}} Only)
+            Rs {{data.SANCTION_AMOUNT}} /- <br>
+            2) I agree to pay the loan on or before <b> {{data.MATURITY_DUE_DATE}} </b> Or as demanded by the
+            society with interest thereon. <br>
+            3) I separately executed a installment bond as per installment bond I agreed to repay the
+            loan. <br>
+            4) To this laon I agree to pay the interest at the rate of Rs {{data.RATE_OF_INTEREST}} % per
+            annum and I agreed to pay interest at quarterly i.e. on 30th
+            june, 30th September, 31st
+            December and 31st March. In failure to pay principal and interest I agreed to pay penal
+            interest at the rate of Rs. 2% per annum. <br>
+            5) I received the loan for the purpose of {{loanInfo.PURPOSE_OF_LOAN}} And I assure to
+            utilize the said loan for the purpose in failure to utilize the loan for the above purpose
+            the society is at liberty to demand the entire loan at once. <br>
+            6) For the repayment of the above loan my movable and immovable properties are liable
+            so also I bind my legal heirs. <br>
+            7) I agreed to existing Rules and Regulations of the society and I also agree for the Rules
+            and Regulations framed by the society from time to time. <br>
+            Hence I execute this receipt for payment.
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            Place :
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            Date :
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;font-size: 11px;">
+
+            Borrower
+
+        </div>
+
+
+
+
+    </div>
+    <div nz-row style="border-bottom: 2px solid #000000;padding-bottom: 5px; margin-bottom: 5px;"></div>
+
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;text-align: justify;">
+
+            We 1)Shri <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                        {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                     </span>
+            Occ <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.OCCUPATION}}
+            </span> 
+            Resident of <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                            {{guarantorMain[0].PERSONAL_INFORMATION.VILLAGE}}
+                        </span> <br>
+            2)Shri <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                    {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+                </span>
+            Occ <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.OCCUPATION}}
+            </span>  Resident of <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.VILLAGE}}
+            </span> <br>
+            Execute this bond that Shri <b> {{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+                {{personalInfo.APPLICANT_LAST_NAME}}</b>
+            (borrower) has received
+            Loan of Rupees <b> {{data.AMOUNT_IN_WORDS}} </b> only)
+            Rs <b> {{data.SANCTION_AMOUNT}} </b> /- from Society, We see that the borrower will as per
+            the terms of the loan make the repayment in failure to do so we bind ourselves jointly and
+            severally for the repayment of loan and it’s interest till the realization.
+
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            Place :
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            Date :
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;font-size: 11px;">
+
+            Surety
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="16" style="margin-top: 20px;">
+        </div>
+
+
+
+        <div nz-col nzSpan="5" style="margin-top: 10px;font-weight:bolder;font-size: 11px;">
+
+            Surety
+
+        </div>
+    </div>
+    <div nz-row>
+
+        <div nz-col nzSpan="24" style="margin-top: 10px;font-weight:bolder;font-size: 15px;text-align: center;">
+            *WITNESSES*
+        </div>
+    </div>
+    <div nz-row>
+
+        <div nz-col nzSpan="1" style="margin-top: 10px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 10px;font-weight:bolder;">
+            1)
+        </div>
+        <div nz-col nzSpan="10" style="margin-top: 10px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="1" style="margin-top: 10px;font-weight:bolder;">
+            2)
+        </div>
+        <div nz-col nzSpan="10" style="margin-top: 10px;font-weight:bolder;">
+
+        </div>
+    </div>
+    <div nz-row>
+
+        <div nz-col nzSpan="24" style="margin-top: 10px;font-weight:bolder;text-align: center;">
+            The borrower and sureties excuted this receipt in the presence of me.
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="21" style="margin-top: 10px;font-weight:bolder;">
+
+
+        </div>
+
+        <div nz-col nzSpan="3" style="margin-top: 10px;font-weight:bolder;">
+            Secretary
+
+        </div>
+    </div>
+    <div nz-row>
+
+        <div nz-col nzSpan="24" style="margin-top: 10px;font-weight:bolder;text-align: right;">
+
+            Shri Mahatma Basaveshwar Credit. <br>
+            Savhard Sah Niy; Nipani
+        </div>
+    </div>
+</div>
+
+
+<!-- B] Promissory Note -->
+<div *ngIf="type4" style="page-break-after:always ; font-size: 12px;">
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;font-size: 20px;text-align: center;">
+            ಶ್ರೀ ಮಹಾತ್ಮಾ ಬಸವೇಶ್ವರ ಕ್ರೇಡಿಟ್ ಸೌಹಾರ್ದ ಸಹಕಾರಿ ನಿ; ನಿಪ್ಪಾಣಿ.
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;font-size: 15px;text-align: center;">
+            ತಾಲೂಕ : ಚಿಕ್ಕ ೋಡಿ, ಜಿಲ್ಲೆ: ಬೆಳಗಾವಿ.
+
+        </div>
+
+
+
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="9" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="10" style="margin-top: 5px; font-size: 18px; border: 2px solid black;border-radius: 5px; height: 40px; width: 30px ; 
+                                     text-align: center; justify-content: center;">
+            <b>ವಚನ ಪತರ / ಪ್ಪರ ಮಿಸರಿ ನೀಟ</b>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ನಾವು ಕೆಳಗೆ ಸಹಿ ಮಾಡಿದವರ
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಸಾಲಗಾರ 1)
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+            <b>{{personalInfo.APPLICANT_NAME}} {{personalInfo.APPLICANT_MIDDLE_NAME}}
+            {{personalInfo.APPLICANT_LAST_NAME}}</b>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಜಾಮೋನುದಾರ 2)
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+            <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+            </span>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಜಾಮೋನುದಾರ 3)
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+            <span class="boldReflections" *ngIf="guarantorMain.length > 0">
+                {{guarantorMain[0].PERSONAL_INFORMATION.APPLICANT_NAME}}
+            </span>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="23" style="margin-top: 5px;font-weight:bolder;text-align: justify;">
+
+            ಸಾ: <b>{{addressinfoCurrent.VILLAGE}}</b> ತಾಲೂಕ <b>{{addressinfoCurrent.TALUKA}}</b> ಜಿಲ್ಲೆ
+            <b>{{addressinfoCurrent.DISTRICT}}</b> 
+            ತಮ್ಮ ಸಹಕಾರಿಯ ಸದಸಯ ನಿದ್ದು/ಸಹಸದಸಯ ನಿದ್ದು/ಖಾತೆದಾರನಿದ್ದು, ಬರಕ್ಡುವ ವಚನ ಪತರ ನಾವು
+            ಸಹಕಾರಿ ಕಡೆಯಿಂದ ರೋಖ ರೂಪಾಯ <b> {{data.SANCTION_AMOUNT}}</b> /
+            (ಅಕ್ಷರದಲ್ಲೆ <b> {{data.AMOUNT_IN_WORDS}}</b> ಸಾಲ ತೆಗೆದ್ದಕ್ಿಂಡಿದ್ು ೋವೆ. ತಾವು ಇಲೆ ವೆ
+            ತಮಮ ಿಂದ ಅಧಿಕಾರ ಪಡೆದ್ದಕ್ಿಂಡು ಯಾರಾದರೂ ಬೇಡಿದಾಗೆೆ ಸಹಕಾರಿ ಆಫೋಸಿನಲ್ಲೆ ಸದರಿ ರಕಮ್ನುು
+            ಆದರ ಮೇಲ್ಲ ಕರಾರ ಪರ ಕಾರ ನೂರಕೆಕ ವರ್ಷಕೆಕ <b> {{data.RATE_OF_INTEREST}}</b> % ಬಡಿಿ ಯ ದರದಂತೆ ಆಗುವ ಬಡಿಿ ಸಹ
+            ಕ್ಡುತೆತ ೋವೆ ಅಿಂತಾ ಬರಕ್ಟ್ಟ ವಚನ ಪತರ (ಪಾರ ಮಸರಿನೋಟ್) ಸಹಿ.
+
+        </div>
+
+
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ದಿನಾಿಂಕ: <b> {{data.MATURITY_DUE}} </b>
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಸಹಿ
+
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px; ">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಸಾಲಗಾರ
+
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+
+        <div nz-col nzSpan="14"
+            style="margin-top: 5px; font-size: 18px; border: 2px solid black; height: 40px; width: 10px;">
+            {{data.SANCTION_AMOUNT}}
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಜಾಮೋನುದಾರ ನಂ 1)
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="14" style="margin-top: 20px;">
+        </div>
+
+
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+            ಜಾಮೋನುದಾರ ನಂ 2)
+
+        </div>
+        <div nz-col nzSpan="5" style="margin-top: 5px;font-weight:bolder;">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- 
+
+    <div nz-row nzSpan="24" style="border-bottom: 1px solid black;">
+
+        <div nz-col nzSpan="2" style="text-align:center;">
+                        
+        </div>
+
+        <div nz-col nzSpan="11" style="border-left: 1px solid black; border-right: 1px solid black;">
+                     
+        </div>
+
+        <div nz-col nzSpan="11">
+
+            <div nz-row nzSpan="24">
+
+                <div nz-col nzSpan="2">
+
+                </div>
+
+                <div nz-col nzSpan="22">
+
+                </div>
+                            
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div nz-row nzSpan="24" style="border-bottom: 1px solid black;">
+
+        <div nz-col nzSpan="12" style="border-right: 1px solid black;">
+                                    
+        </div>
+            
+        <div nz-col nzSpan="12">
+                                 
+        </div>
+        
+            
+    </div>
+
+
+ -->

@@ -1,0 +1,426 @@
+<div>
+    <form nz-form style="margin-bottom: 60px;">
+        <div nz-row class="my-box">
+
+            <nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="changeOption()"></nz-checkbox-group>
+            <br>
+            <button type="button" (click)="update()" style="margin-top: 31px;" class="ant-btn ant-btn-primary"
+                nz-button>
+                <span>{{'gincomeinfo.button1'|translate }}</span>
+            </button>
+
+        </div>
+
+
+
+        <!-- salary -->
+        <div *ngIf="data1.IS_SALARY">
+            <br>
+            <nz-divider nzText="{{'gincomeinfo.label49'|translate }}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button (click)="addSalary()" nzType="primary" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="sdata" style="height: 250px;" class="my-scroll no-wrap1" nzBordered #table2>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'gincomeinfo.label50'|translate }}</th>
+                            <th>{{'gincomeinfo.label16'|translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table2.data">
+
+                            <td>
+
+                                <a (click)="deleteSalary(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editSalary(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                            </td>
+
+
+                            <td> {{data.ORGANISATION_NAME}} </td>
+                            <td> {{data.GROSS_SALARY}} </td>
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+        <br>
+        <!-- business -->
+        <div *ngIf="data1.IS_BUSINESS">
+            <nz-divider nzText="{{'gincomeinfo.text3'|translate }}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button nzType="primary" (click)="addBusiness()" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="bdata" [nzShowPagination]="false" style="height: 350px;overflow: auto;"
+                    class="my-scroll no-wrap1" nzBordered #table>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'applicanttypes.column1'|translate }}</th>
+                            <th>{{'gincomeinfo.th3'|translate }}</th>
+                            <th>{{'business_info.CAPITAL_title'|translate }}</th>
+                            <th>{{'business_info.TURNOVER_YEARLY_title'|translate }}</th>
+                            <th>{{'business_info.INCOME_YEARLY_title'|translate }}</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table.data">
+                            <td>
+
+                                <a (click)="deleteBusiness(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editBusiness(data)">
+                                    <i nz-icon nzType="edit" nzTheme="twotone"></i>
+                                </a>
+
+                            </td>
+
+                            <td> {{data['NAME_OF_FIRM']}} </td>
+                            <td> {{data['NATURE_OF_FIRM']}} </td>
+                            <td> {{data['CAPITAL']}} </td>
+                            <td> {{data['TURNOVER_YEARLY']}} </td>
+                            <td> {{data['INCOME_YEARLY']}} </td>
+
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+
+        <!-- house/shop info -->
+        <div *ngIf="data1.IS_HOUSE">
+            <br>
+            <nz-divider nzText="{{'gincomeinfo.text7'|translate }}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button nzType="primary" (click)="addHouse()" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="hdata" style="height: 250px;" class="my-scroll no-wrap1" nzBordered #table3>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl3'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl4'|translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table3.data">
+
+                            <td>
+
+                                <a (click)="deleteHouse(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editHouse(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                            </td>
+
+                            <td> {{data.RENT_DETAILS}} </td>
+                            <td> {{data.INCOME_FROM_RENT}} </td>
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+        <!-- Agriculture info -->
+        <div *ngIf="data1.IS_AGRICULTURE">
+            <br>
+            <nz-divider nzText="{{'gincomeinfo.text8'|translate}}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button nzType="primary" (click)="addAgriculture()" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="adata" style="height: 250px;" class="my-scroll no-wrap1" #table4>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl5'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl6'|translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table4.data">
+
+                            <td>
+
+                                <a (click)="deleteAgriculture(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editAgriculture(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                            </td>
+
+                            <td> <span>Sugar Cane, </span>
+                                <span>Maize, </span>
+                                <span>Tambacco, </span>
+                                <span>Grains, </span>
+                                <span>Other</span>
+                            </td>
+                            <td> <span>{{data.TOTAL}}</span>
+                                <!-- <span>{{data.MAIZE}}</span>
+                                <span>{{data.TAMBACCO}}</span>
+                                <span>{{data.GRAINS}}</span>
+                                <span>{{data.OTHER}}</span> -->
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+        <!-- other info -->
+        <div *ngIf="data1.IS_OTHER">
+            <br>
+            <nz-divider nzText="{{'gincomeinfo.text6'|translate }}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button nzType="primary" (click)="addOther()" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="odata" style="height: 250px;" class="my-scroll no-wrap1" nzBordered #table5>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl1'|translate }}</th>
+                            <th>{{'gincomeinfo.ttl2'|translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table5.data">
+
+                            <td>
+
+                                <a (click)="deleteOther(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editOther(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                            </td>
+
+                            <td> {{data.PRODUCT_NAME}} </td>
+                            <td> {{data.PRODUCT_INCOME}} </td>
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+        <!-- Expenditure information -->
+        <div *ngIf="data1.IS_EXPENDITURE">
+            <br>
+            <nz-divider nzText="{{'gincomeinfo.text9' |translate }}"></nz-divider>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <div nz-row nzType="flex">
+                    <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                        style="display: flex;justify-content: flex-end">
+                        <form nz-form [nzLayout]="'inline'">
+                            <nz-form-item>
+                                <button nz-button nzType="primary" (click)="addExpenditure()" nzJustify="end">
+                                    <i nz-icon nzType="plus"></i>{{'gincomeinfo.button4'|translate }}
+                                </button>
+                            </nz-form-item>
+                        </form>
+                    </div>
+                </div>
+                <nz-table [nzData]="edata" style="height: 250px;" class="my-scroll no-wrap1" nzBordered #table2>
+                    <thead>
+                        <tr>
+                            <th>{{'gincomeinfo.th1'|translate }}</th>
+                            <th>{{'balance-sheet.field1'|translate }}</th>
+                            <th>{{'gincomeinfo.label45'|translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of table2.data">
+
+                            <td>
+
+                                <a (click)="deleteExpenditure(data)">
+                                    <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+                                </a>
+
+                                <a (click)="editExpenditure(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                            </td>
+
+                            <!-- <td> <span>House, </span>
+                                <span>Trade, </span>
+                                <span>Agriculture, </span>
+                                <span>Insurance, </span>
+                                <span>Education, </span>
+                                <span>Miscellaneous, </span>
+                                <span>Other</span>
+                            </td>
+                            <td> </td> -->
+
+
+                            <td> <span *ngIf="data.HOUSE>0">House, </span>
+                                <span *ngIf="data.TRADE>0">Trade, </span>
+                                <span *ngIf="data.AGRICULTURE>0">Agriculture, </span>
+                                <span *ngIf="data.INSURANCE>0">Insurance, </span>
+                                <span *ngIf="data.EDUCATION>0">Education, </span>
+                                <span *ngIf="data.MISCELLANEOUS>0">Miscellaneous, </span>
+                                <span *ngIf="data.OTHER>0">Other</span>
+                            </td>
+                            <td> {{data['TOTAL']}} </td>
+
+                        </tr>
+                    </tbody>
+                </nz-table>
+                <hr>
+                <br>
+            </div>
+
+
+        </div>
+
+        <div nz-row>
+            <div *ngIf="roleId =='5' && CURRENT_STAGE_ID == 8" nz-col nzSpan="24">
+
+                <!-- Save Button -->
+                <button type="button" (click)="save()" style="float: right; margin-left: 10px; margin-right: 10px;"
+                    class="ant-btn ant-btn-primary">{{'cash-credit-loan.button2' | translate}}</button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="1060" [nzVisible]="s_drawerVisible" (nzOnClose)="sdrawerClose()"
+    (nzKeyboard)="true" [nzTitle]="s_drawerTitle">
+    <app-income-salary [sdrawerClose]="CloseCallback" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [data1]="s_drawer"></app-income-salary>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="1060" [nzVisible]="b_drawerVisible" (nzOnClose)="bdrawerClose()"
+    (nzKeyboard)="true" [nzTitle]="b_drawerTitle">
+    <app-income-business [bdrawerClose]="closeCallback1" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [PROPOSAL_ID]="PROPOSAL_ID" [data4]="b_drawerData"></app-income-business>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="560" [nzVisible]="a_drawerVisible" [nzTitle]="a_drawerTitle"
+    (nzOnClose)="adrawerClose()" (nzKeyboard)="true">
+    <app-income-agriculture [adrawerClose]="closeCallback26" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [data26]="a_drawerData"></app-income-agriculture>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="1060" [nzVisible]="h_drawerVisible" [nzTitle]="h_drawerTitle"
+    (nzOnClose)="hdrawerClose()" (nzKeyboard)="true">
+    <app-income-house [hdrawerClose]="closeCallback25" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [data25]="h_drawerData"></app-income-house>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="1050" [nzVisible]="o_drawerVisible" [nzTitle]="o_drawerTitle"
+    (nzOnClose)="odrawerClose()" (nzKeyboard)="true">
+    <app-income-other [odrawerClose]="closeCallback2" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [data4]="o_drawerData"></app-income-other>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="560" [nzVisible]="e_drawerVisible" [nzTitle]="e_drawerTitle"
+    (nzOnClose)="edrawerClose()" (nzKeyboard)="true">
+    <app-income-expenditure [edrawerClose]="closeCallback9" [GUARANTOR_INCOME_INFORMATION_ID]="data1.ID"
+        [data30]="e_drawerData"></app-income-expenditure>
+</nz-drawer>

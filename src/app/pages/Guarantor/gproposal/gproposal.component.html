@@ -1,0 +1,41 @@
+<div>
+    <nz-tabset>
+        <nz-tab *ngFor="let tab of IndivisualInfotabs" [nzTitle]="titleTemplate33">
+            <ng-template #titleTemplate33>
+                <i nz-icon nzType="exclamation-circle" nzTheme="fill" style="color: #f18304;"
+                    *ngIf="!tab.IS_PROVIDED"></i>
+                <i nz-icon nzType="check-circle" nzTheme="fill" style="color: #00b963;" *ngIf="tab.IS_PROVIDED"></i>
+                <span *ngIf="browserLang =='mr' "> {{tab.EXTRA_INFORMATION_NAME}}</span>
+                <span *ngIf="browserLang =='kn' "> {{tab.NAME_KN}}</span>
+                <span *ngIf="browserLang =='en' "> {{tab.NAME_EN}}</span>
+
+            </ng-template>
+
+            <app-gpersonal *ngIf="tab.EXTRA_INFORMATION_ID==1" [G_ID]="G_ID" [PROPOSAL_ID]="PROPOSAL_ID"
+                [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" [APPLICANT_ID]="applicantId" (demo)='getTabs()' [CURRENT_STAGE_ID]="CURRENT_STAGE_ID"
+                [personalInformationId]="personalInformationId" [data]="personalInfo" [familyDeatils]="familyDeatails"
+                [LOAN_KEY]="LOAN_KEY">>
+            </app-gpersonal>
+
+            <app-gincome *ngIf="tab.EXTRA_INFORMATION_ID==2" [G_ID]="G_ID" [PROPOSAL_ID]="PROPOSAL_ID" 
+                [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" (demo)='getTabs()'>
+            </app-gincome>
+
+            <app-gfinancial *ngIf="tab.EXTRA_INFORMATION_ID==4" [G_ID]="G_ID" [PROPOSAL_ID]="PROPOSAL_ID" 
+                [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" (demo)='getTabs()'>
+            </app-gfinancial>
+
+            <app-gcredit *ngIf="tab.EXTRA_INFORMATION_ID==5" [G_ID]="G_ID" [PROPOSAL_ID]="PROPOSAL_ID" 
+                [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" (demo)='getTabs()'>
+            </app-gcredit>
+
+            <app-gproperty *ngIf="tab.EXTRA_INFORMATION_ID==6" [G_ID]="G_ID" [PROPOSAL_ID]="PROPOSAL_ID" 
+                [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" (demo)='getTabs()'>
+            </app-gproperty>
+
+        </nz-tab>
+
+    </nz-tabset>
+
+
+</div>

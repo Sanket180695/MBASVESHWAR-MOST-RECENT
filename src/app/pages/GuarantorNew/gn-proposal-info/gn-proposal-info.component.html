@@ -1,0 +1,23 @@
+<div>
+    <nz-spin [nzSpinning]="isSpinningTabs">
+
+        <nz-tabset [(nzSelectedIndex)]="selectedIndex" (nzSelectedIndexChange)="chnage($event)">
+
+            <nz-tab nzTitle="Personal Information">
+                <app-gn-personal-info [LOAN_KEY]='LOAN_KEY' [IS_APPROVED]="IS_APPROVED"
+                    [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" style="height: 100%;width: 100%;" (demo)='getTabs()'
+                    [APPLICANT_ID]="applicantId"></app-gn-personal-info>
+            </nz-tab>
+
+            <nz-tab nzTitle="Property Infomation">
+                <app-gn-property-info [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" [IS_APPROVED]="IS_APPROVED"
+                    [LOAN_KEY]='LOAN_KEY' style="height: 100%;width: 100%;" (demo)='getTabs()'
+                    [APPLICANT_ID]="applicantId" [PROPOSAL_ID]="PROPOSAL_ID">
+                </app-gn-property-info>
+            </nz-tab>
+
+        </nz-tabset>
+
+    </nz-spin>
+
+</div>

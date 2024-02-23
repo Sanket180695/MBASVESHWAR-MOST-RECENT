@@ -1,0 +1,856 @@
+<div>
+    <form nz-form>
+
+        <div nz-row>
+            <div nz-col nzSpan="11">
+                <div class="my-box">
+
+
+                    <div nz-row>
+
+                        <!-- IMPORTANT -->
+                        <div nz-col nzSpan="11">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.propertytype3_title' | translate}}
+                                </nz-form-label>
+                                <nz-form-control>
+                                    <nz-select name="type111" nzShowSearch style="width: 100%"
+                                        [(ngModel)]="data.G_IS_AGRICULTURE_LAND_OR_OTHER">
+                                        <nz-option nzValue="A"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option1_title' | translate}}">
+                                        </nz-option>
+                                        <nz-option nzValue="H"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option2_title' | translate}}">
+                                        </nz-option>
+                                        <nz-option nzValue="S"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option3_title' | translate}}">
+                                        </nz-option>
+                                        <nz-option nzValue="V"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option4_title' | translate}}">
+                                        </nz-option>
+                                        <nz-option nzValue="P"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option5_title' | translate}}">
+                                        </nz-option>
+                                        <nz-option nzValue="O"
+                                            nzLabel="{{ 'propertiesinfoadd.IS_AGRICULTURE_LAND_OR_OTHER_option6_title' | translate}}">
+                                        </nz-option>
+                                    </nz-select>
+
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="12" *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O'" >
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.encumbrance' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="encumbrance" type="text" [(ngModel)]="data.G_ENCUMBRANCE" />
+                                </nz-form-control>
+                            </nz-form-item>
+
+                        </div>
+
+
+
+                        <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O'" nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.propertydetails1_title' |
+                                    translate}}
+                                </nz-form-label>
+
+                                <nz-form-control nzHasFeedback>
+                                    <textarea nz-input rows="2" name="propertydetails1"
+                                        [(ngModel)]="data.G_PROPERTY_DETAILS"></textarea>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+                <!-- new changes -->
+                <div nz-row *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " class="my-box">
+
+                    <div nz-col *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label nzNoColon> {{ 'propertiesinfoadd.totalarea1_title' | translate}}
+                            </nz-form-label>
+                            <nz-form-control>
+
+                                <input nz-input name="totalarea12" type="text" [(ngModel)]="data.G_TOTAL_AREA" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+
+                    <div nz-col *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label nzNoColon> {{ 'propertiesinfoadd.outofwhich' | translate}}
+                            </nz-form-label>
+                            <nz-form-control>
+
+                                <input nz-input name="totalarea1" type="text" [(ngModel)]="data.G_OUT_OF_WHICH" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+
+                </div>
+                <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O'" class="my-box">
+                    <div nz-row>
+                        <div nz-col nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.IS_MORTGAGED_SUB_title' |
+                                    translate}}
+                                </nz-form-label>
+
+                                <nz-form-control>
+                                    <nz-switch name="IS_MORTGAGED_FOR_SUB" [(ngModel)]="data.G_IS_MORTGAGED_FOR_SUB"
+                                        nzCheckedChildren=" {{'common_text.checked' | translate}} "
+                                        nzUnCheckedChildren=" {{'common_text.unchecked' | translate}} ">
+                                    </nz-switch>
+
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-row *ngIf="data.G_IS_MORTGAGED_FOR_SUB">
+                            <div nz-col nzSpan="24">
+                                <nz-form-item>
+
+                                    <nz-form-control>
+                                        <nz-form-control>
+                                            <nz-radio-group name="BOJA" nzButtonStyle="solid"
+                                                [(ngModel)]="data.G_BOJA_TYPE">
+                                                <label nz-radio nzValue="R">{{ 'propertiesinfoadd.label1' |
+                                                    translate}}</label>
+                                                <label nz-radio nzValue="S">{{ 'propertiesinfoadd.label2' |
+                                                    translate}}</label>
+                                            </nz-radio-group>
+                                        </nz-form-control>
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </div>
+                        </div>
+
+                        <div nz-col nzSpan="12" *ngIf="data.G_IS_MORTGAGED_FOR_SUB">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.outofwhich' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="outofwhich" type="text" [(ngModel)]="data.G_OUT_OF_WHICH" />
+                                </nz-form-control>
+                            </nz-form-item>
+
+                        </div>
+                        <div nz-col nzSpan="24" *ngIf="data.G_IS_MORTGAGED_FOR_SUB">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{'agri_info.MORTGUAGE_label' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <textarea nz-input name="MORTGUAGE_DETAILS" type="text"
+                                        [(ngModel)]="data.G_MORTGUAGE_DETAILS" [nzAutosize]="{ minRows: 2, maxRows: 5 }"
+                                        [attr.maxlength]="250" >
+                                        <!-- (ngModelChange)="wordCounter($event)" -->
+
+                                    </textarea>
+                                    <small style="font-weight: bolder;">{{numberOfCharacters1}} / 250</small>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{'agri_info.AKAR_title' |
+                                    translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <nz-input-number name="AKAR" style="width: 100%;" [(ngModel)]="data.G_AKAR_RS"
+                                        [nzMin]="0">
+                                    </nz-input-number>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.valuation_amount_title' |
+                                    translate}} </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <nz-input-number name="amoonut" style="width: 100%;"
+                                        [(ngModel)]="data.G_VALUATION_AMOUNT" [nzMax]="999999999" [nzMin]="0">
+                                    </nz-input-number>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER=='A'" nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.category_soil_title1' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="categoryofsoil" type="text"
+                                        [(ngModel)]="data.G_CATEGORY_OF_SOIL" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+
+                </div>
+                <div nz-row *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " class="my-box">
+                    <!-- <div *ngIf="data.IS_AGRICULTURE_LAND_OR_OTHER!='V' "  nz-row> -->
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-label nzNoColon>{{'agri_info.REMARK_label' | translate}}
+                            </nz-form-label>
+                            <nz-form-control nzHasFeedback>
+                                <textarea nz-input name="REMARK" type="text" [(ngModel)]="data.G_REMARK"
+                                    [nzAutosize]="{ minRows: 2, maxRows: 5 }"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <!-- </div> -->
+                    <div nz-col nzSpan="12" *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' ">
+                        <nz-form-item>
+                            <nz-form-label nzNoColon> {{ 'propertiesinfoadd.detailsdoc' | translate}}
+                            </nz-form-label>
+
+                            <nz-form-control>
+                                <nz-switch name="DETAILS_OF_DOCUMENT"
+                                    [(ngModel)]="data.G_DETAILS_OF_DOCUMENT_CONFORMING_RIGHT"
+                                    nzCheckedChildren=" {{'common_text.checked' | translate}} "
+                                    nzUnCheckedChildren=" {{'common_text.unchecked' | translate}} ">
+                                </nz-switch>
+
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </div>
+            <div nz-col nzSpan="1">
+
+            </div>
+            <div nz-col nzSpan="12">
+                <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " class="my-box">
+                    <nz-form-label style="font-weight: bold;">
+                        {{ 'propertiesinfoadd.agriland_address_title2' | translate}} </nz-form-label>
+                    <div nz-row>
+
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{'propertiesinfoadd.landmark_title1' | translate}}/{{
+                                    'propertiesinfoadd.landmark_title3' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno1" type="text" [(ngModel)]="data.G_R_S_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title39' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno3" type="text" [(ngModel)]="data.G_SURVEY_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title2' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno2" type="text" [(ngModel)]="data.G_TMC_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title4' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno4" type="text" [(ngModel)]="data.G_VPC_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title5' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno5" type="text" [(ngModel)]="data.G_FLAT_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title6' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno6" type="text" [(ngModel)]="data.G_PLOT_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title7' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno7" type="text" [(ngModel)]="data.G_E_SWATTU" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{
+                                    'propertiesinfoadd.landmark_title8' | translate}}</nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="houseno8" type="text" [(ngModel)]="data.G_CTS_NO" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon> {{ 'propertiesinfoadd.building_title' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="building" type="text" [(ngModel)]="data.G_BUILDING" />
+                                </nz-form-control>
+                            </nz-form-item>
+
+                        </div>
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.landmark_title' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="landmark" type="text" [(ngModel)]="data.G_LANDMARK" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+
+                                <nz-form-label nzRequired nzNoColon>{{ 'propertiesinfoadd.village_title' |
+                                    translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="village" type="text" [(ngModel)]="data.G_VILLAGE" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.taluka_title' |
+                                    translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="taluka" type="text" [(ngModel)]="data.G_TALUKA"
+                                         />
+                                        <!-- (ngModelChange)="onChanges($event)"  -->
+
+
+                                    <!-- <nz-autocomplete #auto>
+                                        <nz-auto-option *ngFor="let option of talukas" [nzValue]="option.G_TALUKA">
+                                            {{option.TALUKA }},<small>{{ option.PINCODE }}</small>
+                                        </nz-auto-option>
+                                    </nz-autocomplete> -->
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.district_title' |
+                                    translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="distrcict" type="text" [(ngModel)]="data.G_DISTRICT" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+
+                                <nz-form-label nzRequired nzNoColon>{{ 'propertiesinfoadd.state_title' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="state" type="text" [(ngModel)]="data.G_STATE" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="8">
+                            <nz-form-item>
+
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.pincode' | translate}}
+                                </nz-form-label>
+                                <nz-form-control nzHasFeedback>
+                                    <input nz-input name="pincode" maxlength="6" type="text"
+                                        [(ngModel)]="data.G_PINCODE" 
+                                         />
+                                        <!-- (ngModelChange)="onChanges2($event)" -->
+
+                                    <!-- <nz-autocomplete #auto4>
+                                        <nz-auto-option *ngFor="let option of pincodes" [nzValue]="option">
+                                            {{option}}
+                                        </nz-auto-option>
+                                    </nz-autocomplete> -->
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER!='V' && data.G_IS_AGRICULTURE_LAND_OR_OTHER!='O' " nz-row class="my-box">
+                    <nz-form-label style="font-weight: bold;">
+                        {{ 'propertiesinfoadd.boundry' | translate}}</nz-form-label>
+                    <div nz-row>
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.east' | translate}}
+                                </nz-form-label>
+                                <nz-form-control>
+
+                                    <input nz-input name="east" type="text" [(ngModel)]="data.G_EAST" required />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.west' | translate}}
+                                </nz-form-label>
+                                <nz-form-control>
+
+                                    <input nz-input name="west" type="text" [(ngModel)]="data.G_WEST" required />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.North' | translate}}
+                                </nz-form-label>
+                                <nz-form-control>
+
+                                    <input nz-input name="north" type="text" [(ngModel)]="data.G_NORTH" required />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+
+
+                        <div nz-col nzSpan="6">
+                            <nz-form-item>
+                                <nz-form-label nzNoColon>{{ 'propertiesinfoadd.South' | translate}}
+                                </nz-form-label>
+                                <nz-form-control>
+
+                                    <input nz-input name="south" type="text" [(ngModel)]="data.G_SOUTH" required />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER=='V' " nz-row>
+                    <div nz-col nzSpan="24">
+                        <div class="my-box">
+                            <nz-form-label style="font-weight: bold;">
+                                {{ 'propertiesinfoadd.vehicle_title' | translate}} </nz-form-label>
+                            <div nz-row>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon> {{'vehicle-loan.VEHICLE_TYPE'| translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-radio-group name="VEHICLE_TYPE" [(ngModel)]="data.G_VEHICLE_TYPE"
+                                                nzButtonStyle="solid">
+                                                <label nz-radio nzValue="N"> {{'vehicle-loan.VEHICLE_TYPE1'|
+                                                    translate}}
+                                                </label>
+                                                <label nz-radio nzValue="U">{{'vehicle-loan.VEHICLE_TYPE2'|
+                                                    translate}}</label>
+                                            </nz-radio-group>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{
+                                            'propertiesinfoadd.Vehicle_name' | translate}}</nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Vname" type="text" [(ngModel)]="data.G_VEHICLE_NAME" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{data.G_WHEELS_COUNT}}
+                                            {{'vehicle-loan.WHEELS_COUNT'| translate}} </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-select name="WHEELS_COUNT" [(ngModel)]="data.G_WHEELS_COUNT"
+                                                nzPlaceHolder=" {{'vehicle-loan.WHEELS_COUNT_PLACEHOLDER'| translate}} ">
+                                                <nz-option *ngFor="let p of vehicel" [nzValue]="p.Id"
+                                                    [nzLabel]="p.name">
+                                                </nz-option>
+                                            </nz-select>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{ 'propertiesinfoadd.Vehicle_number' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <input nz-input name="Vname2" type="text" [(ngModel)]="data.G_VEHICLE_NO" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{ 'propertiesinfoadd.Model_number' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-input-number name="Model_number" style="width: 100%;"
+                                                [(ngModel)]="data.G_MODEL_NO" [nzMin]="0" [nzMax]="999999">
+                                            </nz-input-number>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.Engine_number' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Engine_number" type="text"
+                                                [(ngModel)]="data.G_ENGINE_NO" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.Chesis_number' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Chesis_number" type="text"
+                                                [(ngModel)]="data.G_CHESIS_NO" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{ 'propertiesinfoadd.Valuation' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Valuation" type="text"
+                                                [(ngModel)]="data.G_VALUATION_AMOUNT" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.Insurance_No' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Insurance_No" type="text"
+                                                [(ngModel)]="data.G_INSURANCE_NO" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.Policy_NO' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Policy_NO" type="text" [(ngModel)]="data.G_POLICY_NO" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="8">
+
+                                    <nz-form-label nzRequired nzNoColon>
+                                        {{'propertiesinfoadd.valuationdate'|translate }}
+                                    </nz-form-label>
+
+                                    <nz-form-control nzHasFeedback>
+
+                                        <input nz-input
+                                            [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+                                            placeholder="dd/mm/yyyy" type="text" [(ngModel)]="data.G_VALUATION_DATE"
+                                            name="VALUATION_DATE" />
+                                    </nz-form-control>
+
+                                </div>
+
+                                <div nz-col nzSpan="12">
+
+                                    <nz-form-label nzRequired nzNoColon>
+                                        {{'propertiesinfoadd.Insurance_period'|translate }}
+                                    </nz-form-label>
+
+                                    <nz-form-control nzHasFeedback>
+
+                                        <input nz-input
+                                            [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+                                            placeholder="dd/mm/yyyy" type="text"
+                                            [(ngModel)]="data.G_INSURANCE_EXPIRY_DATE" name="INSURANCE_EXPIRY_DATE" />
+                                    </nz-form-control>
+
+                                </div>
+
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'gpersonalinfo.label39' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="vehicle_year" type="text"
+                                                [(ngModel)]="data.YEAR_OF_VEHICLE" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.type_of_body' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="body_type" type="text"
+                                                [(ngModel)]="data.TYPE_OF_BODY" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.HP' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="hp" type="text"
+                                                [(ngModel)]="data.HP" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.registration_no' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="registration_no" type="text"
+                                                [(ngModel)]="data.REGISTRATION_NUMBER" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="8">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'propertiesinfoadd.dealer_or_showroom_name' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="dealer_or_showroom_name" type="text"
+                                                [(ngModel)]="data.DEALER_OR_SHOWROOM_NAME" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div *ngIf="data.G_IS_AGRICULTURE_LAND_OR_OTHER=='O'" nz-row>
+                    <div nz-col nzSpan="24">
+                        <div class="my-box">
+                            <nz-form-label style="font-weight: bold;">
+                                {{ 'propertiesinfoadd.other_title' | translate}} </nz-form-label>
+                            <div nz-row>
+                                
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'proposaldocument.columns1' | translate}}</nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="Oname" type="text"
+                                                [(ngModel)]="data.OTHER_PROPERTY_NAME" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{ 'propertiesinfo.label7' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-input-number name="OTHER_PROPERTY_VALUATION" style="width: 100%;"
+                                                [(ngModel)]="data.OTHER_PROPERTY_VALUATION">
+                                            </nz-input-number>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="24">
+
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon> {{'balance-sheet.field1' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <textarea nz-input type="text" rows="2" name="OTHER_PROPERTY_DETAILS"
+                                            [(ngModel)]="data.OTHER_PROPERTY_DETAILS"></textarea>
+                                        </nz-form-control>
+                                    </nz-form-item>
+
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{'business_info.registerTypeData1' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control nzHasFeedback>
+                                            <input nz-input name="OTHER_PROPERTY_COMPANY" type="text"
+                                                [(ngModel)]="data.OTHER_PROPERTY_COMPANY" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon>{{ 'gpersonalinfo.label39' | translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-input-number name="OTHER_PROPERTY_YEAR" style="width: 100%;"
+                                                [(ngModel)]="data.OTHER_PROPERTY_YEAR">
+                                            </nz-input-number>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+                                <div nz-col nzSpan="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzNoColon> {{'propertiesinfoadd.new_or_used'| translate}}
+                                        </nz-form-label>
+                                        <nz-form-control>
+                                            <nz-radio-group name="OTHER_PROPERTY_TYPE" [(ngModel)]="data.OTHER_PROPERTY_TYPE"
+                                                nzButtonStyle="solid">
+                                                <label nz-radio nzValue="N"> {{'vehicle-loan.VEHICLE_TYPE1'|
+                                                    translate}}
+                                                </label>
+                                                <label nz-radio nzValue="U">{{'vehicle-loan.VEHICLE_TYPE2'|
+                                                    translate}}</label>
+                                            </nz-radio-group>
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+
+
+                            </div>
+                            
+                        </div>
+
+
+                        
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </form>
+
+
+    <!-- *ngIf=" extraApplicantInformation.IS_APPROVED == false" -->
+    <div class="footer">
+
+
+        <!-- (click)="close()" -->
+        <button type="button" nz-button class="ant-btn" style="margin-right: 8px;">
+
+            <span>{{'common_text.cancel_button_title' | translate}}</span>
+
+        </button>
+
+
+        <!-- *ngIf="!data.ID" -->
+        <!-- <button type="button" class="ant-btn ant-btn-primary"  nz-button nz-dropdown
+            [nzDropdownMenu]="menu">
+            <span>{{ 'common_text.footer_btn1' | translate}}</span>
+        </button> -->
+
+        <!-- <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+
+                <li nz-menu-item class="menuc" style="border-radius: 4px;background-color: #40a9ff;">
+
+                    <a>{{ 'common_text.footer_btn2' | translate}}</a> -->
+                    <!-- (click)="save(true)" -->
+            <!-- 
+
+                </li>
+            </ul>
+        </nz-dropdown-menu> -->
+
+
+        <!-- (click)="save(false)" [nzLoading]="isSpinning1" -->
+        <button type="button" class="ant-btn ant-btn-primary" nz-button (click)="save()">
+            <span>{{ 'common_text.footer_btn1' | translate}} </span>
+        </button>
+    </div>
+
+
+    <!-- *ngIf=" extraApplicantInformation.IS_APPROVED == false && data.IS_AGRICULTURE_LAND_OR_OTHER=='V' " 
+            (click)="close()"-->
+    <!-- <div class="footer"> -->
+        <!-- <button type="button" nz-button class="ant-btn" style="margin-right: 8px;"><span>{{
+                'common_text.cancel_button_title' | translate}}
+            </span>
+        </button> -->
+
+        <!-- (click)="nextstep2(false)" -->
+        <!-- <button type="button" class="ant-btn ant-btn-primary" *ngIf="!data.ID" nz-button nz-dropdown
+            [nzDropdownMenu]="menu">
+            <span>{{ 'common_text.footer_btn1' | translate}}</span>
+        </button> -->
+
+        <!-- <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item class="menuc" style="border-radius: 4px;background-color: #40a9ff;">
+
+                    <a>{{ 'common_text.footer_btn2' | translate}}</a> -->
+                    <!-- (click)="nextstep2(true)" -->
+
+                <!-- </li>
+            </ul>
+        </nz-dropdown-menu> -->
+
+        <!-- [nzLoading]="isSpinning1" (click)="nextstep2(false)" -->
+        <!-- <button type="button" class="ant-btn ant-btn-primary" nz-button (click)="save()" >
+            <span>{{ 'common_text.footer_btn1' | translate}} </span>
+        </button> -->
+    <!-- </div> -->
+</div>

@@ -1,0 +1,440 @@
+<div>
+
+    <form nz-form style="margin-top: 10px;">
+     
+            <div nz-row>
+                <div nz-col [nzLg]="{span :22, offset:1}">
+                    <nz-form-item>
+                        <nz-form-label *ngIf="browserLang == 'kn'" nzNoColon>
+                            {{'gcreditinfo.label1.child1'|translate }}
+                        </nz-form-label>
+                        <nz-form-label *ngIf="browserLang != 'kn'" nzNoColon>
+                            {{'gcreditinfo.label1.child1'|translate }}
+                            {{bank}}
+                        </nz-form-label>
+                        <nz-form-control>
+                            <!--  -->
+                            <nz-switch name="IS_EXISTING_LOAN_WITH_SUB1" 
+                                (click)="filterLoans(data.G_IS_EXISTING_LOAN_WITH_SUB,data.G_IS_EXISTING_LOAN_WITH_OTHER_BANKS)"
+                                [(ngModel)]="data.G_IS_EXISTING_LOAN_WITH_SUB"
+                                nzCheckedChildren="{{'gcreditinfo.switch.child1'|translate }}"
+                                nzUnCheckedChildren="{{'gcreditinfo.switch.child2'|translate }}"></nz-switch>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzLg]="{span :22, offset:1}" *ngIf="data.G_IS_EXISTING_LOAN_WITH_SUB">
+                    <div nz-row nzType="flex">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                            style="display: flex;justify-content: flex-end">
+                            <form nz-form [nzLayout]="'inline'">
+                                <nz-form-item>
+                                    <!-- (click)="add1(true)" -->
+                                    <button nz-button nzType="primary" (click)="addLoanFromThisBank()" nzJustify="end">
+                                        <i nz-icon nzType="plus"></i>{{'gcreditinfo.button1'|translate }}
+                                    </button>
+                                </nz-form-item>
+                            </form>
+                        </div>
+                    </div>
+                    <nz-table [nzShowPagination]="false" style="height: 250px;overflow: auto;"
+                        class="my-scroll no-wrap1" nzBordered #table [nzFrontPagination]="false" [nzData]="thisBankData">
+                        <!-- [nzData]="dataLi" [nzLoading]="loadingRecords1" -->
+
+                        <thead >
+                            <!-- (nzSortChange)="sort($event)" -->
+                            <tr>
+                                <th>{{'gcreditinfo.th1'|translate }}</th>
+                                <!-- <th>बँकेचे किंवा संस्थेचे नाव</th> -->
+                                <!-- <th>{{'gcreditinfo.th2'|translate }}</th> -->
+                                <th>{{'gcreditinfo.th3'|translate }}</th> 
+                                <th>{{'gcreditinfo.th4'|translate }}</th>
+                                <th>{{'gcreditinfo.th5'|translate }}</th>
+                                <th>{{'gcreditinfo.th6'|translate }}</th>
+                                <th>{{'gcreditinfo.th7'|translate }}</th>
+                                <!-- <th>{{'gcreditinfo.th8'|translate }}</th> -->
+                                <th>{{'gcreditinfo.th22'|translate }}</th>
+                                <th>{{'gpersonalinfo.label39'|translate }}</th>
+                                <th>{{'gcreditinfo.th9'|translate }}</th>
+                                <th>{{'gcreditinfo.th23'| translate}}</th>
+
+                                <!-- <th>{{'gcreditinfo.th10'|translate }}</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of table.data">
+                                <!--  -->
+                                
+                                <td>
+
+                                    
+                                    <a (click)="deleteLoanFromThisBank(data)" style="margin-right: 10px;"><i nz-icon nzType="delete"
+                                            nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i></a>
+
+                                    <a (click)="editLoanFromThisBank(data)" ><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                                 
+                                
+                                </td>
+                                <!-- <td> {{data.BRANCH_NAME}} </td> -->
+                                <td> {{data.ACCOUNT_NUMBER}} </td>
+                                
+                                    <!-- getLoanName -->
+                                <td> {{data.LOAN_TYPE_ID}} </td>
+                                <td> {{data.SANCTIONED_AMOUNT}} </td>
+                                <td> {{data.INSTALLMENT_AMOUNT}} </td>
+                                <td> {{data.LOAN_OUTSTANDING}} </td>
+                                <!-- <td> {{data.LOAN_OVERDUE_AMOUNT}} </td> -->
+                                <td> {{data.SANCTION_DATE | date:'dd-MM-yyyy'}} </td>
+                                <td> {{data.YEAR}} </td>
+                                <td> {{data.DUE_DATE | date:'dd-MM-yyyy'}} </td>
+                                <td> {{data.REPAYMENT_DATE | date:'dd-MM-yyyy'}} </td>
+
+                                <!-- <td> {{data.SECURITY_OFFERED}} </td> -->
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                    <hr>
+                    <br>
+                </div>
+
+            </div>
+
+            <div nz-row>
+                <div nz-col [nzLg]="{span :22, offset:1}">
+                    <nz-form-item>
+                        <nz-form-label *ngIf="browserLang == 'kn'" nzNoColon>
+                            {{'gcreditinfo.label2'|translate }}
+                        </nz-form-label>
+                        <nz-form-label *ngIf="browserLang != 'kn'" nzNoColon>{{'gcreditinfo.label2'|translate }}</nz-form-label>
+                        <nz-form-control>
+                                <!-- (click)="filterLoans(data.IS_EXISTING_LOAN_WITH_SUB,data.IS_EXISTING_LOAN_WITH_OTHER_BANKS)" -->
+                            <nz-switch name="IS_EXISTING_LOAN_WITH_OTHER_BANKS1"
+                                
+                                [(ngModel)]="data.G_IS_EXISTING_LOAN_WITH_OTHER_BANKS"
+                                nzCheckedChildren="{{'gcreditinfo.switch.child1'|translate }}"
+                                nzUnCheckedChildren="{{'gcreditinfo.switch.child2'|translate }}"></nz-switch>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzLg]="{span :22, offset:1}" *ngIf="data.G_IS_EXISTING_LOAN_WITH_OTHER_BANKS">
+                    <div nz-row nzType="flex">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                            style="display: flex;justify-content: flex-end">
+                            <form nz-form [nzLayout]="'inline'">
+                                <nz-form-item>
+                                                                <!-- (click)="add1(false)" -->
+                                    <button nz-button nzType="primary" (click)="addLoanFromOtherBank()"  nzJustify="end">
+                                        <i nz-icon nzType="plus"></i>{{'gcreditinfo.button1'|translate }}
+                                    </button>
+                                </nz-form-item>
+                            </form>
+                        </div>
+                    </div>
+                    <nz-table [nzShowPagination]="false" style="height: 250px;overflow: auto;"
+                        class="my-scroll no-wrap1" nzBordered #table [nzFrontPagination]="false" [nzData]="otherBankData" >
+                            <!-- [nzData]="dataList6"
+                            [nzLoading]="loadingRecords1" [nzTotal]="totalRecords" [(nzPageIndex)]="pageIndex"
+                            [(nzPageSize)]="pageSize" -->
+
+
+
+                            <!-- (nzSortChange)="sort($event)" -->
+                        <thead >
+                            <tr>
+                                <th>{{'gcreditinfo.th1'|translate }}</th>
+                                <!-- <th>बँकेचे किंवा संस्थेचे नाव</th> -->
+                                <!-- <th>{{'gcreditinfo.th2'|translate }}</th> -->
+                                <!-- <th>{{'gcreditinfo.th3'|translate }}</th> -->
+                                <th>{{'gcreditinfo.th18'|translate }}</th>
+                                <th>{{'gcreditinfo.th7'|translate }}</th>
+                                <!-- <th>{{'gcreditinfo.th9'|translate }}</th> -->
+                                <th>{{'reports.REMARK' |translate}}</th>
+                                <!-- <th>{{'gcreditinfo.th8'|translate }}</th> -->
+                                <!-- <th>{{'gcreditinfo.th22'|translate }}</th> -->
+                                <!-- <th>{{'gpersonalinfo.label39'|translate }}</th>
+                                <th>{{'gcreditinfo.th9'|translate }}</th> -->
+                                <!-- <th>{{'gcreditinfo.th10'|translate }}</th> -->
+                                <!-- <th>{{'gcreditinfo.th23'| translate}}</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of table.data">
+                                <!--  -->
+
+                                <td>
+                                    <a (click)="deleteLoanFromOtherBank(data)" style="margin-right: 10px;" ><i nz-icon nzType="delete"
+                                            nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i></a>
+
+                                    <a (click)="editLoanFromOtherBank(data)"><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                                
+                                
+                                </td>
+
+                                <td> {{data.BANK_NAME}} </td>
+                                <!-- <td> {{data.BRANCH_NAME}} </td> -->
+                                <!-- <td> {{data.ACCOUNT_NUMBER}} </td>  -->
+                                <td> {{data.LOAN_TYPE}} </td>
+                                <!-- <td> {{data.SANCTIONED_AMOUNT}} </td>
+                                <td> {{data.INSTALLMENT_AMOUNT}} </td> -->
+                                <td> {{data.LOAN_OUTSTANDING}} </td>
+                                <!-- <td> {{data.LOAN_OVERDUE_AMOUNT}} </td> -->
+                                <!-- <td> {{data.SANCTION_DATE | date:'dd-MM-yyyy'}} </td> -->
+                                <!-- <td> {{data.YEAR}} </td> -->
+                                <!-- <td> {{data.DUE_DATE | date:'dd-MM-yyyy'}} </td> -->
+                                <!-- <td> {{data.REPAYMENT_DATE | date:'dd-MM-yyyy'}} </td> -->
+                                <td> {{data.REMARK}} </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                    <hr>
+                    <br>
+                </div>
+
+            </div>
+            <div *ngIf="data.G_IS_EXISTING_LOAN_WITH_OTHER_BANKS" nz-row>
+            <div nz-col [nzLg]="{span :22, offset:1}">
+                <nz-form-item>
+                    <nz-form-label *ngIf="browserLang == 'kn'" nzNoColon>
+                        {{'gcreditinfo.label2'|translate }}
+                    </nz-form-label>
+                    <nz-form-label *ngIf="browserLang != 'kn'" nzNoColon>If so than whether NOC obtained and enclosed with the application</nz-form-label>
+                    <nz-form-control>
+                        <nz-switch name="IS_NOC_OBTAINED_AND_ENCLOSED1"
+                         
+                            [(ngModel)]="data.G_IS_NOC_OBTAINED_AND_ENCLOSED"
+                            nzCheckedChildren="{{'gcreditinfo.switch.child1'|translate }}"
+                            nzUnCheckedChildren="{{'gcreditinfo.switch.child2'|translate }}"></nz-switch>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            </div>
+            <div nz-row>
+                <div nz-col [nzLg]="{span :22, offset:1}">
+                    <nz-form-item>
+                        <nz-form-label *ngIf="browserLang == 'kn'" nzNoColon>
+                            {{'gcreditinfo.label3.child1'|translate }}
+                        </nz-form-label>
+                        <nz-form-label *ngIf="browserLang != 'kn'" nzNoColon>{{'gcreditinfo.label3.child1'|translate }} {{bank}}
+                        </nz-form-label>
+                        <nz-form-control>
+                            <nz-switch name="IS_GUARANTOR_TO_LOAN_WITH_SUB1"
+                                [(ngModel)]="data.G_IS_GUARANTOR_TO_LOAN_WITH_SUB"
+                                nzCheckedChildren="{{'common.switch.yes'|translate}}"
+                                nzUnCheckedChildren="{{'common.switch.no'|translate}}"></nz-switch>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzLg]="{span :22, offset:1}" *ngIf="data.G_IS_GUARANTOR_TO_LOAN_WITH_SUB">
+                    <div nz-row nzType="flex">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                            style="display: flex;justify-content: flex-end">
+                            <form nz-form [nzLayout]="'inline'">
+                                <nz-form-item>
+                                                                <!-- (click)="add2(true)" -->
+                                    <button nz-button nzType="primary" (click)="addLoanGuarantee()" nzJustify="end">
+                                        <i nz-icon nzType="plus"></i>{{'gcreditinfo.button1'|translate }}
+                                    </button>
+                                </nz-form-item>
+                            </form>
+                        </div>
+                    </div>
+                    <nz-table [nzShowPagination]="false" style="height: 250px;overflow: auto;"
+                        class="my-scroll no-wrap1" nzBordered #table [nzFrontPagination]="false" [nzData]="loanGuaranteeData" >
+                            <!-- [nzData]="dataList2"
+                            [nzLoading]="loadingRecords2" [nzTotal]="totalRecords" [(nzPageIndex)]="pageIndex"
+                            [(nzPageSize)]="pageSize" -->
+
+
+
+                         <!-- (nzSortChange)="sort($event)" -->
+                        <thead>
+                            <tr>
+                                <th>{{'gcreditinfo.th1'|translate }}</th>
+                                <!-- <th>बँकेचे किंवा संस्थेचे नाव</th> -->
+                                <!-- <th>{{'gcreditinfo.th2'|translate }}</th> -->
+                                <th>{{'gcreditinfo.th3'|translate }}</th> 
+                                <th>{{'gcreditinfo.th12'|translate }}</th>
+                                <th>{{'gcreditinfo.th13'|translate }}</th>
+                                <th>{{'gcreditinfo.th5'|translate }}</th>
+                                <th>{{'gcreditinfo.th7'|translate }}</th>
+                                <!-- <th>{{'gcreditinfo.th8'|translate }}</th> -->
+                                <!-- <th>मुदत संपते तारीख</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                              <!--   -->
+                            <tr *ngFor="let data of table.data">
+                                
+                                <td>
+                                    <a (click)="deleteLoanGuarantee(data)" style="margin-right: 10px;" ><i nz-icon nzType="delete"
+                                            nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i></a>
+
+                                    <a (click)="editLoanGuarantee(data)" ><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                                
+                                </td>
+                                <!-- <td> {{data['BRANCH_NAME']}} </td> -->
+                                <!-- <td> {{data.BRANCH_NAME}} </td> -->
+                                <td> {{data.ACCOUNT_NUMBER}} </td> 
+                                <td> {{data.BORROWER_NAME}} </td>
+
+                                    <!-- getLoanName() -->
+                                <td> {{data.LOAN_TYPE_ID}}</td>
+                                <td> {{data.SANCTIONED_AMOUNT}} </td>
+                                <td> {{data.LOAN_OUTSTANDING}} </td>
+                                <!-- <td> {{data.LOAN_OVERDUE_AMOUNT}} </td> -->
+                                <!-- <td> {{data['DUE_DATE'] | date:'dd-MM-yyyy'}} </td> -->
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                    <hr>
+                    <br>
+                </div>
+
+            </div>
+            
+            <div nz-row>
+                <div nz-col [nzLg]="{span :22, offset:1}">
+                    <nz-form-item>
+                        <nz-form-label *ngIf="browserLang == 'kn'" nzNoColon>
+                            {{'gcreditinfo.label5.child1'|translate }}
+                            
+                        </nz-form-label>
+                        <nz-form-label *ngIf="browserLang != 'kn'" nzNoColon>{{'gcreditinfo.label5.child1'|translate }} {{bank}}
+                            {{'gcreditinfo.label5.child2'|translate }}
+                        </nz-form-label>
+                        <nz-form-control>
+                            <nz-switch name="IS_EARLIAR_LOAN_HISTORY1" [(ngModel)]="data.G_IS_EARLIAR_LOAN_HISTORY"
+                                nzCheckedChildren="{{'gcreditinfo.switch.child1'|translate }}"
+                                nzUnCheckedChildren="{{'gcreditinfo.switch.child2'|translate }}"></nz-switch>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzLg]="{span :22, offset:1}" *ngIf="data.G_IS_EARLIAR_LOAN_HISTORY">
+                    <div nz-row nzType="flex">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="20" nzLg="20" nzXl="12">
+
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="4" nzLg="6" nzXl="12"
+                            style="display: flex;justify-content: flex-end">
+                            <form nz-form [nzLayout]="'inline'">
+                                <nz-form-item>
+                                                                <!-- (click)="add3(true)" -->
+                                    <button nz-button nzType="primary" (click)="addLoanPreviousLoan()"  nzJustify="end">
+                                        <i nz-icon nzType="plus"></i>{{'gcreditinfo.button1'|translate }}
+                                    </button>
+                                </nz-form-item>
+                            </form>
+                        </div>
+                    </div>
+                    <nz-table [nzShowPagination]="false" style="height: 250px;overflow: auto;"
+                        class="my-scroll no-wrap1" nzBordered #table [nzFrontPagination]="false" [nzData]="previousLoanData" >
+                            <!-- 
+                        [nzLoading]="loadingRecords4" [nzTotal]="totalRecords" [(nzPageIndex)]="pageIndex"
+                        [(nzPageSize)]="pageSize" -->
+
+
+                        <thead >
+                            <!-- (nzSortChange)="sort($event)" -->
+
+
+                            <tr>
+                                  
+                                <th>{{'gcreditinfo.th1'|translate }}</th>
+                                <th>{{'gcreditinfo.th3'|translate }}</th>
+                                <!-- <th>बँकेचे नाव</th> -->
+                                <!-- <th>{{'gcreditinfo.th2'|translate }}</th> -->
+                                <th>{{'gcreditinfo.th4'|translate }}</th>
+                                <th>{{'gcreditinfo.th15'|translate }}</th>
+                                <th>{{'gcreditinfo.th16'|translate }}</th>
+                                <th>{{'gpersonalinfo.label39'|translate }}</th>
+                                <th>{{'gcreditinfo.th23'|translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <!--  -->
+                            <tr *ngFor="let data of table.data" >
+                                <td>
+                                    <a (click)="deleteLoanPreviousLoan(data)" style="margin-right: 10px;"   ><i nz-icon nzType="delete"
+                                            nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i></a>
+
+                                    <a (click)="editLoanPreviousLoan(data)"  ><i nz-icon nzType="edit" nzTheme="twotone"></i></a>
+                                
+                                </td>
+                                <!-- <td> {{data['BRANCH_NAME']}} </td> -->
+                                <td> {{data.ACCOUNT_NO}} </td>
+
+                                        <!-- getLoanName() -->
+                                <td> {{data.PURPOSE_OF_LOAN}} </td>
+
+                                <td> {{data.LOAN_AMOUNT}} </td>
+                                <td> {{data.LOAN_TAKEN_DATE}} </td>
+                                <td> {{data.YEAR}} </td>
+                                <td> {{data.REPAYMENT_DATE}} </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                       <hr>
+                    <br>
+                </div>
+
+            </div>
+            
+
+    </form>
+
+ 
+ 
+    <div *ngIf="roleId =='5' && CURRENT_STAGE_ID == 8" style="margin-left: 900px" >    
+        <button type="button" class="ant-btn ant-btn-primary" nz-button (click)="save()" >
+            <span>{{'gcreditinfo.button2'|translate }}</span>
+        </button>
+    </div>
+</div>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="390" [nzVisible]="drawerVisible_ThisBank" [nzTitle]="drawerTitle_ThisBank"
+    (nzOnClose)="drawerCloseThisBank()" (nzKeyboard)="true" >
+
+    <app-credit-loan-from-this-bank [drawerCloseThisBank]="closeCallback1" [data1]="drawerData_ThisBank" 
+                                    [G_ID]="G_ID" [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" [loans]="loans" >
+    </app-credit-loan-from-this-bank>
+
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="390" [nzVisible]="drawerVisible_OtherBank" [nzTitle]="drawerTitle_OtherBank"
+    (nzOnClose)="drawerCloseOtherBank()" (nzKeyboard)="true">
+
+    <app-credit-loan-from-other-bank [drawerCloseOthersBank]="closeCallback4" [data4]="drawerData_OtherBank" 
+                                    [G_ID]="G_ID" [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" >
+
+    </app-credit-loan-from-other-bank>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="390" [nzVisible]="drawerVisible_LoanGuarantee" [nzTitle]="drawerTitle_LoanGuarantee"
+    (nzOnClose)="drawerCloseLoanGuarantee()" (nzKeyboard)="true">
+
+    <app-credit-loan-guarantee [drawerCloseLoanGuarantee]="closeCallback2" [data2]="drawerData_LoanGuarantee" 
+                                [G_ID]="G_ID" [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" [loans]="loans2" >
+
+    </app-credit-loan-guarantee>
+</nz-drawer>
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100%)', overflow: 'auto', 'padding-bottom': '53px' }" [nzClosable]="true"
+    [nzMask]="true" [nzMaskClosable]="false" [nzWidth]="390" [nzVisible]="drawerVisible_PreviousLoan" [nzTitle]="drawerTitle_PreviousLoan"
+    (nzOnClose)="drawerClosePreviousLoan()" (nzKeyboard)="true">
+
+    <app-credit-previous-loan [drawerClosePreviousLoan]="closeCallback3" [data3]="drawerData_PreviousLoan" 
+                                [G_ID]="G_ID" [CURRENT_STAGE_ID]="CURRENT_STAGE_ID" [loans]="loans3" >
+
+    </app-credit-previous-loan>
+</nz-drawer>
