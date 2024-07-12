@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Financialinformation } from 'src/app/Models/PersonalProposal/financialinformation';
 import { NzModalRef, NzModalService, NzNotificationService } from 'ng-zorro-antd';
 import { ApiService } from 'src/app/Service/api.service';
@@ -13,6 +13,8 @@ import { FinancialcurrentdepositComponent } from '../financialcurrentdeposit/fin
 import { FinancialrecurringdepositComponent } from '../financialrecurringdeposit/financialrecurringdeposit.component';
 import { Loaninformation } from 'src/app/Models/PersonalProposal/loaninformation';
 import { FinancialpigmydepositComponent } from '../financialpigmydeposit/financialpigmydeposit.component';
+import { Proposal } from 'src/app/Models/proposal';
+import { createAutoCorrectedDatePipe } from 'text-mask-addons';
 
 @Component({
   selector: 'app-financialinfo',
@@ -48,7 +50,7 @@ export class FinancialinfoComponent implements OnInit {
 
   @ViewChild(FinancialrecurringdepositComponent) pigmyAccInfo: FinancialpigmydepositComponent;
 
-
+  @ViewChild('file1', { static: false }) myInputVariable1: ElementRef;
 
   isButtonSpinning = false
   date = new Date();
@@ -146,6 +148,15 @@ export class FinancialinfoComponent implements OnInit {
   total = [];
   total1 = [];
   confirmModal?: NzModalRef;
+
+  @Input() proposaldata: Proposal;
+  CIBIL_SCORE: number
+  fileData_REPORT_URL: File = null
+  cibilitReportUrl: string = ""
+  fkey = this.api.cibilifkey;
+  REMARK: string = ""
+  public mask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  autoCorrectedDatePipe = createAutoCorrectedDatePipe('dd/mm/yyyy HH:MM')
   constructor(private api: ApiService, private message: NzNotificationService, private modal: NzModalService,) { }
 
   ngOnInit(): void {
@@ -1515,7 +1526,7 @@ export class FinancialinfoComponent implements OnInit {
         .subscribe(successCode => {
           if (successCode['code'] == "200") {
             this.loadData()
-
+            this.saveCibil()
             var LOG_ACTION = 'User saved Financial Info  tab information'
             var DESCRIPTION = sessionStorage.getItem('userName') + 'has saved the Financial Info  for the proposal ' + this.LOAN_KEY
             var LOG_TYPE = 'I'
@@ -1696,40 +1707,86 @@ export class FinancialinfoComponent implements OnInit {
     this.VerifyUpdate();
   }
 
+  getStatusName(status) {
+    if (status == 'R')
+      return this.api.translate.instant('cibilchecking.lebel9')
+    else if (status == 'B')
+      return this.api.translate.instant('cibilchecking.lebel10')
+    else
+      return this.api.translate.instant('cibilchecking.lebel11')
+  }
 
-  // deleteSavingAcc(data: any): void{
-  //   this.confirmModal = this.modal.confirm({
-  //     nzTitle: this.api.translate.instant('common.confirmModal.nzTitle'),
-  //     nzContent: this.api.translate.instant('common.confirmModal.nzContent'),
-  //     nzOnOk: () =>
-  //       new Promise((resolve, reject) => {
-  //         data.ARCHIVE_FLAG = "T";
+  onFileSelectedCIBIL_REPRT_URL(event) {
+    this.fileData_REPORT_URL = <File>event.target.files[0];
+  }
 
-  //         this.api.updateDepositInformation(data).subscribe(
-  //           successCode => {
-  //             if (successCode['code'] == 200) {
-  //               this.getSavingAcc();
-  //               setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-  //               this.drawerClose2();
-  //               this.message.success(this.api.translate.instant('common.message.success.addinfo'), "");
-  //             }
-  //             else {
-  //               this.message.error(this.api.translate.instant('common.message.success.deleteinfo'), "");
-  //             }
-  //           }
-  //         )
 
-  //       }).catch(() => { })//console.log('माहिती बदल करण्यात अयशस्वी!'))
-  //   });
-  // }
+  saveCibil() {
+    var isOk = true;
+    console.log(this.fileData_REPORT_URL, this.REMARK)
 
-  // getSavingAcc(){
-  //   this.api.getDepositInformation(this.PROPOSAL_ID,'S').subscribe(
-  //     successCode => {
-  //       if(successCode['code'] == 200){
-  //         this.savingAccdata = successCode['data']
-  //       }
-  //     }
-  //   )
-  // }
+
+
+    if (this.fileData_REPORT_URL) {
+
+      var fileExt = this.fileData_REPORT_URL.name.split('.').pop();
+      var lkey = ""
+
+      this.api.onUploadNewMethod(this.fileData_REPORT_URL, fileExt, this.api.cibilifkey)
+        .subscribe(successCode => {
+          console.log(successCode)
+          if (successCode['code'] == 200) {
+
+            lkey = successCode['data'][0]['L_KEY']
+            this.cibilitReportUrl = lkey
+            this.isButtonSpinning = false;
+            this.updateProposal();
+            // this.updateData()
+          }
+          else {
+            console.log(successCode)
+            this.isButtonSpinning = false;
+          }
+        });
+
+    }
+    else {
+      this.updateProposal();
+    }
+
+
+
+
+  }
+
+  updateProposal() {
+    this.proposaldata.CIBIL_SCORE = this.data.CIBIL_SCORE;
+    this.proposaldata.CIBIL_DATE = this.data.CIBIL_DATE;
+
+    if (this.cibilitReportUrl) {
+      this.proposaldata.CIBIL_REPORT_URL = this.cibilitReportUrl;
+    }
+
+    this.isButtonSpinning = false;
+    this.api.updateProposal1(this.proposaldata).subscribe({
+      next: (res) => {
+        if (res['code'] == 200) {
+          this.isButtonSpinning = false;
+          console.log("Proposal Updated")
+        }
+      }
+    })
+  }
+
+ 
+
+  reset() {
+    this.myInputVariable1.nativeElement.value = null;
+    this.REMARK = ""
+    this.fileData_REPORT_URL = null
+    this.CIBIL_SCORE = undefined
+  }
+
+
+
 }

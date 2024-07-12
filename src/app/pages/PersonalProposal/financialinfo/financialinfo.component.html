@@ -281,6 +281,51 @@
             </div>  -->
 
 
+            <div nz-col nzSpan="24" class="my-box">
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <nz-form-label [nzSpan]="24" nzNoColon>
+                            {{'cibilchecking.IS_CIBIL'|translate}}
+                        </nz-form-label>
+                        <nz-form-control>
+                            <nz-switch name="ispigmy" [(ngModel)]="data.IS_CIBIL"
+                                nzCheckedChildren="{{'gfinancialinfo.switch.child1'|translate }}"
+                                nzUnCheckedChildren="{{'gfinancialinfo.switch.child2'|translate }}">
+                            </nz-switch>
+                        </nz-form-control>
+                    </div>
+                </div>
+
+                <div nz-row *ngIf="data.IS_CIBIL">
+                    <div nz-col nzSpan="8">
+                        <nz-form-item>
+                            <nz-form-label nzRequired>{{'cibilchecking.label15'|translate }} </nz-form-label>
+                            <input nz-input
+                                [textMask]="{mask: mask,guide:true,keepCharPositions:true,pipe:autoCorrectedDatePipe}"
+                                placeholder="dd/mm/yyyy" [(ngModel)]="data.CIBIL_DATE" name="CIBIL_DATE"/>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col nzSpan="8">
+                        <nz-form-item>
+                            <nz-form-label nzRequired>{{'cibilchecking.lebel4'|translate }} </nz-form-label>
+                            <nz-input-number name="sequence_number" style="width: 100%;" [(ngModel)]="data.CIBIL_SCORE"
+                                ></nz-input-number>
+                        </nz-form-item>
+
+                    </div>
+                    <div nz-col nzSpan="8">
+                        <nz-form-item>
+                            <nz-form-label>{{'cibilchecking.lebel5'|translate }} </nz-form-label>
+                            <input type="file" #file1 accept="application/pdf" (change)="onFileSelectedCIBIL_REPRT_URL($event)" />
+                        </nz-form-item>
+
+                    </div>
+                </div>
+            </div>
+
+
             <!-- Saving acc details -->
             <div nz-row>
 

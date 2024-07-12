@@ -39,7 +39,7 @@
     "message6": "Is the applicant a bank's customer?",
     "message7": "Does the applicant want the loan on personal name or in the name of the firm?",
     "action1": "Submit for verification",
-    "action2": "Submit for CIBIL verification",
+    "action2": "Send to next stage",
     "action3": "Keep On Hold",
     "drawername": "Add Proposal",
     "r1": "Salary",

@@ -449,10 +449,10 @@ export class NewproposalComponent implements OnInit {
           this.data.CAST = " "
           //this.message.error(this.api.translate.instant('basicinfo.message1'), "");
         }
-        if (this.data.MEMBERS_IN_FAMILY == undefined || this.data.MEMBERS_IN_FAMILY == 0) {
-          Isok = false;
-          //this.message.error(this.api.translate.instant('basicinfo.message1'), "");
-        }
+        // if (this.data.MEMBERS_IN_FAMILY == undefined || this.data.MEMBERS_IN_FAMILY == 0) {
+        //   Isok = false;
+          
+        // }
         if (this.data.PAN == undefined || this.data.PAN.trim() == '') {
           // Isok = false;
           this.data.PAN = " "

@@ -587,12 +587,13 @@ export class Documents2Component implements OnInit {
       });
 
   }
+
   save3() {
 
     this.isButtonSpinning2 = true
 
 
-    let nextStageId = 4
+    let nextStageId = 8
     // //console.log(nextStageId, this.data.ID)
     this.api.updateStatus(this.data.CURRENT_STAGE_ID, nextStageId, " ", this.data.ID, 0)
       .subscribe(successCode => {
@@ -670,6 +671,92 @@ export class Documents2Component implements OnInit {
       });
 
   }
+
+  // save3() {
+
+  //   this.isButtonSpinning2 = true
+
+  //   let nextStageId = 8 
+
+
+  //   //let nextStageId = 4 
+  //   // //console.log(nextStageId, this.data.ID)
+  //   this.api.updateStatus(this.data.CURRENT_STAGE_ID, nextStageId, " ", this.data.ID, 0)
+  //     .subscribe(successCode => {
+  //       // //console.log(successCode)
+  //       this.isButtonSpinning2 = false
+
+  //       if (successCode['code'] == "200") {
+
+
+  //         this.drawerClose()
+  //         this.logtext = 'Update Status - Document Checking form - SUCCESS ' + "Stage Id" + nextStageId + JSON.stringify(this.data) + " KEYWORD [U - ApplicantDocument ]";
+  //         this.api.addLog('A', this.logtext, this.api.emailId)
+  //           .subscribe(successCode => {
+  //             if (successCode['code'] == "200") {
+  //               // //console.log(successCode);
+  //             }
+  //             else {
+  //               // //console.log(successCode);
+  //               this.isButtonSpinning2 = false
+
+
+  //             }
+  //           });
+
+  //         this.userActivityLogData.USER_ID = Number(sessionStorage.getItem('userId'))
+  //         this.userActivityLogData.ACTIVITY_DETAILS = " DocumentChecking -   Document Checking" + "Stage Id" + nextStageId + JSON.stringify(this.data)
+  //         this.userActivityLogData.ACTIVITY_TIME = new Date()
+  //         this.api.createUserActivityLog(this.userActivityLogData)
+  //           .subscribe(successCode => {
+  //             if (successCode['code'] == "200") {
+  //               // //console.log(successCode);
+  //             }
+  //             else {
+  //               // //console.log(successCode);
+  //               this.isButtonSpinning = false
+
+  //             }
+  //           });
+
+
+  //       }
+  //       else {
+
+  //         this.isButtonSpinning = false
+
+  //         this.logtext = ' DocumentChecking -  Document Checking form - ERROR - ' + "Stage Id" + nextStageId + "Json" + JSON.stringify(this.data) + " KEYWORD [U - JoinedBranch ]";
+  //         this.api.addLog('A', this.logtext, this.api.emailId)
+  //           .subscribe(successCode => {
+  //             if (successCode['code'] == "200") {
+  //               // //console.log(successCode);
+  //             }
+  //             else {
+  //               // //console.log(successCode);
+
+
+  //             }
+  //           });
+  //         this.userActivityLogData.USER_ID = Number(sessionStorage.getItem('userId'))
+  //         this.userActivityLogData.ACTIVITY_DETAILS = " DocumentChecking -  Document Checking Failed" + "Stage Id" + nextStageId + JSON.stringify(this.data)
+  //         this.userActivityLogData.ACTIVITY_TIME = new Date()
+  //         this.api.createUserActivityLog(this.userActivityLogData)
+  //           .subscribe(successCode => {
+  //             if (successCode['code'] == "200") {
+  //               // //console.log(successCode);
+  //             }
+  //             else {
+  //               // //console.log(successCode);
+  //             }
+  //           });
+  //         this.message.error(this.api.translate.instant('common.message.error.failed'), "");
+
+  //         this.isButtonSpinning = false
+
+  //       }
+  //     });
+
+  // }
 
   save2() {
 

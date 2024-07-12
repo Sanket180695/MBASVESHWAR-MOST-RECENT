@@ -188,9 +188,9 @@
 
 <div class="footer" *ngIf="TYPE=='B'">
 
-  <!-- <button type="button" style="margin-right: 10px;" *ngIf="(data.CURRENT_STAGE_ID>2 && buttonVisible)"
+  <button type="button" style="margin-right: 10px;" *ngIf="(data.CURRENT_STAGE_ID>2 && buttonVisible)"
     class="ant-btn ant-btn-primary" nz-button [nzLoading]="isButtonSpinning"
-    (click)="save2()"><span>{{'documents2.button1'|translate }}</span></button> -->
+    (click)="save2()"><span>{{'documents2.button1'|translate }}</span></button>
 
   <button type="button" style="margin-right: 10px;" *ngIf="(docverifyButton && data.CURRENT_STAGE_ID==2)"
     class="ant-btn ant-btn-primary" nz-button [nzLoading]="isButtonSpinning2"

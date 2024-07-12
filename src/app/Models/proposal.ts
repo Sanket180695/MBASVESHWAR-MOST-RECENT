@@ -89,5 +89,9 @@ export class Proposal {
     LOAN_DISBURSEMENT_REMARK: string
     HAND_WRITTEN_AMT_IN_WORDS1: string
 
+    
+    CIBIL_DATE: number
+    CIBIL_REPORT_URL: string
+
 
 }

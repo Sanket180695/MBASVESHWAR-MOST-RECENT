@@ -159,13 +159,13 @@ export class ApiService {
 
   baseUrl =  "https://mahatmabasaveshwarbackend.kredpool.in/"
 
-  // baseUrl = "http://192.168.1.10:8040/"
+  // baseUrl = "http://192.168.31.76:8040/" server
 
   // baseUrl = "http://192.168.99.48:3936/"
   // baseUrl = "http://192.168.1.18:3936/"
   // baseUrl = "http://316403e73c00.ngrok.io/"  
 
-  // gmUrl = "http://97.74.83.236:8079/"
+  // gmUrl = "http://97.74.83.236:8079/" server
  
 
   // baseUrl = "http://basaveshwarbackend.kredpool.in/"
@@ -4367,6 +4367,13 @@ export class ApiService {
   createDepositInformation(data:FRecurringDeposit){
     
     return this.httpClient.post<number>(this.url + "termDeposit/create", data ,this.options);
+  }
+
+  updateProposal1(data: Proposal): Observable<number> {
+
+
+    data.CLIENT_ID = this.clientId;
+    return this.httpClient.post<number>(this.url + "praposal/update", JSON.stringify(data), this.options);
   }
 
 
